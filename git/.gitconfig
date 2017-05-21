@@ -1,0 +1,14 @@
+[user]
+	name = Vincent Ceulemans
+	email = deVinnnie@users.noreply.github.com
+[gui]
+	historybrowser = gitk
+	editor = gvim
+[diff]
+	tool = meld
+
+[alias]
+	hist = log --oneline --decorate --graph
+	st = status
+	co = checkout
+	
