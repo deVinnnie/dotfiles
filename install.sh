@@ -8,3 +8,8 @@ ln -sfv $DOTFILES_DIR/geany/geany.conf ~/.config/geany/geany.conf
 ln -sfv $DOTFILES_DIR/locale.conf ~/locale.conf
 ln -sfv $DOTFILES_DIR/.tmux.conf ~/.tmux.conf
 ln -sfv $DOTFILES_DIR/.editorconfig ~/.editorconfig
+
+ln -sfv $DOTFILES_DIR/atom/config.cson ~/.atom/config.cson
+ln -sfv $DOTFILES_DIR/atom/keymap.cson ~/.atom/keymap.cson
+
+

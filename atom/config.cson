@@ -1,0 +1,54 @@
+"*":
+  core:
+    autoHideMenuBar: true
+    automaticallyUpdate: false
+    disabledPackages: [
+      "metrics"
+      "spell-check"
+      "autosave"
+      "background-tips"
+      "bookmarks"
+      "language-objective-c"
+      "language-csharp"
+      "language-go"
+      "archive-view"
+      "language-clojure"
+      "language-mustache"
+      "language-perl"
+      "language-ruby"
+      "language-ruby-on-rails"
+      "open-on-github"
+      "welcome"
+      "update-package-dependencies"
+      "autoflow"
+      "deprecation-cop"
+      "exception-reporting"
+      "language-coffee-script"
+      "styleguide"
+    ]
+    telemetryConsent: "no"
+  editor:
+    fontSize: 18
+    invisibles: {}
+    showIndentGuide: true
+    showInvisibles: true
+    tabLength: 4
+  minimap: {}
+  "one-dark-ui": {}
+  "spell-check": {}
+  welcome:
+    showOnStartup: false
+  whitespace:
+    removeTrailingWhitespace: false
+".html.jsp.text":
+  editor:
+    tabLength: 4
+".java-properties.source":
+  editor:
+    tabLength: 4
+".java.source":
+  editor:
+    tabLength: 4
+".junit-test-report.text":
+  editor:
+    tabLength: 4
