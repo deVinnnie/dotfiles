@@ -120,5 +120,11 @@ function clean
     done
 }
 
+function cleanAll
+{
+    DIRS=$(find . -maxdepth 2 -name pom.xml | grep -oP "./\K.*" | cut -d '/' -f 1)
+    clean $DIRS
+}
+
 # Initialize
 oc_project_refresh

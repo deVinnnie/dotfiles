@@ -6,3 +6,4 @@ alias jenkins='$JAVA_HOME/jre/bin/java -jar /c/dev/common/jenkins-cli/jenkins-cl
 alias compose-up='docker-compose up --force-recreate'
 alias refresh='source ~/.bashrc'
 alias parallel-mvn='mvn -T 1C $@'
+alias root='cd "$(git rev-parse --show-toplevel)"' # https://stackoverflow.com/questions/1571461/git-a-quick-command-to-go-to-root-of-the-working-tree
