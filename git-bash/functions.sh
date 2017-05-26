@@ -18,9 +18,7 @@ function p
 function op
 {
     if [ "$#" -eq 0 ]; then
-        export OC_PROJECT=`oc.exe project --short`
-        export SECRETS=`oc.exe get secrets --output=name | cut -d '/' -f 2 | sed 's/-secret//'`
-        export DEPLOYMENT_CONFIGS=`oc get dc --output=name | grep -oP '^deploymentconfig/\K.*'`
+        oc_project_refresh
         return 0
     elif [ "$#" -eq 2 ]; then
         TENNANT='vas'
@@ -39,9 +37,7 @@ function op
     PROJECT=$TENNANT-$ENV-00$PROJECT_NUMBER-${OC_PROJECTS[$TENNANT-$PROJECT_NUMBER]}
     oc.exe project $PROJECT &> /dev/null
 
-    export OC_PROJECT=`oc.exe project --short`
-    export SECRETS=`oc.exe get secrets --output=name | cut -d '/' -f 2 | sed 's/-secret//'`
-    export DEPLOYMENT_CONFIGS=`oc get dc --output=name | grep -oP '^deploymentconfig/\K.*'`
+    oc_project_refresh
 }
 
 function ocscale
@@ -53,6 +49,13 @@ function ocscale
         REPLICAS=$2
     fi
     oc.exe scale dc $DC --replicas=$REPLICAS
+}
+
+function oc_project_refresh
+{
+    export OC_PROJECT=`oc.exe project --short`
+    export SECRETS=`oc.exe get secrets --output=name | cut -d '/' -f 2 | sed 's/-secret//'`
+    export DEPLOYMENT_CONFIGS=`oc get dc --output=name | grep -oP '^deploymentconfig/\K.*'`
 }
 
 # Switch Jenkins Server
@@ -116,3 +119,6 @@ function clean
         cd ..
     done
 }
+
+# Initialize
+oc_project_refresh

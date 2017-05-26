@@ -30,7 +30,7 @@ __os_autocomplete()
 complete -o nospace -F __os_autocomplete os
 
 
-__ocscale_autocomplete()
+__openshift_deployment_autocomplete()
 {
     local cur prev
     COMPREPLY=()
@@ -40,4 +40,19 @@ __ocscale_autocomplete()
     return 0
 }
 
-complete -o nospace -F __ocscale_autocomplete ocscale
+complete -o nospace -F __openshift_deployment_autocomplete ocscale
+complete -o nospace -F __openshift_deployment_autocomplete ocd
+
+
+__op_autocomplete()
+{
+    ENVS='test int'
+    local cur prev
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    COMPREPLY=( $(compgen -W "${ENVS}" -- ${cur}) )
+
+    return 0
+}
+
+complete -o nospace -F __op_autocomplete op
