@@ -28,3 +28,16 @@ __os_autocomplete()
     return 0
 }
 complete -o nospace -F __os_autocomplete os
+
+
+__ocscale_autocomplete()
+{
+    local cur prev
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    COMPREPLY=( $(compgen -W "${DEPLOYMENT_CONFIGS}" -- ${cur}) )
+
+    return 0
+}
+
+complete -o nospace -F __ocscale_autocomplete ocscale

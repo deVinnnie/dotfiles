@@ -18,6 +18,9 @@ function p
 function op
 {
     if [ "$#" -eq 0 ]; then
+        export OC_PROJECT=`oc.exe project --short`
+        export SECRETS=`oc.exe get secrets --output=name | cut -d '/' -f 2 | sed 's/-secret//'`
+        export DEPLOYMENT_CONFIGS=`oc get dc --output=name | grep -oP '^deploymentconfig/\K.*'`
         return 0
     elif [ "$#" -eq 2 ]; then
         TENNANT='vas'
@@ -38,6 +41,18 @@ function op
 
     export OC_PROJECT=`oc.exe project --short`
     export SECRETS=`oc.exe get secrets --output=name | cut -d '/' -f 2 | sed 's/-secret//'`
+    export DEPLOYMENT_CONFIGS=`oc get dc --output=name | grep -oP '^deploymentconfig/\K.*'`
+}
+
+function ocscale
+{
+    DC=$1
+    if [ "$#" -eq 1 ]; then
+        REPLICAS=1
+    else
+        REPLICAS=$2
+    fi
+    oc.exe scale dc $DC --replicas=$REPLICAS
 }
 
 # Switch Jenkins Server
@@ -90,4 +105,14 @@ function java-8
 function java-7
 {
     export JAVA_HOME=$JAVA_ROOT/sdk/1.7.0_40-x64/
+}
+
+function clean
+{
+    for var in "$@"
+    do
+        cd $var
+        mvn clean
+        cd ..
+    done
 }
