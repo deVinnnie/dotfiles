@@ -73,7 +73,7 @@ alias ls='ls -h --color=auto'
 alias wake='wol 00:19:d1:89:58:36'
 alias diary='~/bin/diary.sh'
 alias git-cola='~/bin/git-cola.sh'
-alias ij='~/bin/idea.sh &'
+alias ij='~/bin/idea . &'
 
 # Environment variables
 # ----------------------------------------------------------------------

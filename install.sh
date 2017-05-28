@@ -17,3 +17,5 @@ for file in `find . -type f -name \* -print`
 do
     ln -sfv $DOTFILES_DIR/$file ~/.IntelliJIdea2017.1/config/$file
 done
+
+ln -sfv $DOTFILES_DIR/bin/idea ~/bin/idea
