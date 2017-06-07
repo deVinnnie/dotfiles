@@ -1,18 +1,53 @@
 #!/c/javadev/tools/ruby-1.9.3/bin/ruby
 
+# Imports
+###############################################################################
 require 'open-uri'
 require 'json'
+require 'yaml'
+require 'uri'
 
-search_term = ARGV[0].downcase
-url = "https://git01.smals.be/api/v3/projects?private_token=yZxKvtaEdUFxRHergVgK&search=" << search_term
-res = open(url)
-json = JSON.parse(res.read)
 
-json.each do |repo|
-  if repo['name'].downcase == search_term
-    puts repo['ssh_url_to_repo']
-    exit 0
+
+# Helper function
+###############################################################################
+def get_repo_from_gitlab_json(json, search_name)
+  json.each do |repo|
+    if repo['name'].downcase == search_name
+      puts repo['ssh_url_to_repo']
+      exit 0  # Stop execution if repo is found
+    end
   end
 end
 
+def get_gitlab_projects_json(repo, search_name)
+  querystring = 'private_token=' << repo['private_token'] << '&search=' << search_name
+  uri = URI::HTTPS.build({
+    :host => repo['host'],
+    :path => '/api/v3/projects',
+    :query => querystring
+    })
+  JSON.parse(open(uri.to_s).read)
+end
+
+
+
+# Main
+###############################################################################
+# See https://stackoverflow.com/questions/4474918/file-expand-path-gemfile-file-how-does-this-work-where-is-the-fil#4479926
+config_path = File.expand_path("../git-bash/findRepo.yaml", File.dirname(__FILE__))
+yaml_config = YAML.load_file(config_path)
+search_term = ARGV[0].downcase
+
+yaml_config['repositories'].each do |repo|
+  if repo['type'] == 'gitlab'
+    gitlab_json = get_gitlab_projects_json(repo, search_term)
+    get_repo_from_gitlab_json(gitlab_json, search_term)
+
+  elsif repo['type'] == 'github'
+    # TODO: add github support
+  end
+end
+
+# Exit with error status if this point is reached
 exit 1

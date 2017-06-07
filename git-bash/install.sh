@@ -13,3 +13,6 @@ SECRET_FILE=secret.sh
 touch $SECRET_FILE
 read -p "Please enter the path of your projects directory: " PROJECTS_DIR
 echo "export PROJECTS_DIR=$PROJECTS_DIR" >> $SECRET_FILE
+
+touch findRepo.yaml
+echo 'Please fill in findRepo.yaml if you want to p to auto-download repos'
