@@ -1,0 +1,18 @@
+#!/c/javadev/tools/ruby-1.9.3/bin/ruby
+
+require 'open-uri'
+require 'json'
+
+search_term = ARGV[0].downcase
+url = "https://git01.smals.be/api/v3/projects?private_token=yZxKvtaEdUFxRHergVgK&search=" << search_term
+res = open(url)
+json = JSON.parse(res.read)
+
+json.each do |repo|
+  if repo['name'].downcase == search_term
+    puts repo['ssh_url_to_repo']
+    exit 0
+  end
+end
+
+exit 1
