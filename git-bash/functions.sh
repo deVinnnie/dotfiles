@@ -27,7 +27,9 @@ function p
     fi
 }
 
-# Switch OpenShift Project
+# Switch between OpenShift Projects.
+# `op [tennant] <env> <number>`
+# Shorthand for `oc project <project-name>`
 function op
 {
     if [ "$#" -eq 0 ]; then
@@ -53,6 +55,8 @@ function op
     oc_project_refresh
 }
 
+# Set the number of replicas for a deployment-config.
+# Defaults to 1 replica if no argument if given.
 function ocscale
 {
     DC=$1
@@ -64,6 +68,7 @@ function ocscale
     oc.exe scale dc $DC --replicas=$REPLICAS
 }
 
+# Refresh info for prompt, and autocomplete functions.
 function oc_project_refresh
 {
     export OC_PROJECT=`oc.exe project --short`
@@ -71,7 +76,7 @@ function oc_project_refresh
     export DEPLOYMENT_CONFIGS=`oc get dc --output=name | grep -oP '^deploymentconfig/\K.*'`
 }
 
-# Switch Jenkins Server
+# Switch between Jenkins Servers
 function jp
 {
     if [ "$1" == "clear" ]; then
@@ -83,12 +88,12 @@ function jp
     JENKINS_PROJECT=`echo $JENKINS_URL | grep -Eo "jenkins-[0-9]{3}"`
 }
 
-# Create secret
+# Create secret:
+#    os app resources-tst.yaml
+#    os app .
+# Results in 'app-secret' being created on the current OpenShift Project.
 function os
 {
-    # Usages:
-    #    os app resources-tst.yaml
-    #    os app .
     APP_DIR=$1
     ARGS=${@:2}
     oc.exe delete secrets $APP_DIR-secret
@@ -96,6 +101,7 @@ function os
 }
 
 # The killing curse for OpenShift pods
+# Usage: `avada-kadavra pod-name-1 pod-name-2 ...`
 function avada-kadavra
 {
     for var in "$@"
@@ -104,6 +110,12 @@ function avada-kadavra
     done
 }
 
+# Start a bash shell on the docker container with the given container-id.
+# Usage:
+#   `docker-bash [container-id]`
+#
+# If only one container is running you can ommit the container-id argument.
+#
 function docker-bash
 {
     if [ "$#" -eq 1 ]; then
@@ -123,6 +135,10 @@ function java-7
     export JAVA_HOME=$JAVA_ROOT/sdk/1.7.0_40-x64/
 }
 
+# Run `mvn clean` for each specified project.
+#
+# Usage: `clean project-1 project-2 ...`
+#
 function clean
 {
     for var in "$@"
@@ -133,6 +149,7 @@ function clean
     done
 }
 
+# Run `mvn clean` in all subdirectories.
 function cleanAll
 {
     DIRS=$(find . -maxdepth 2 -name pom.xml | grep -oP "./\K.*" | cut -d '/' -f 1)
