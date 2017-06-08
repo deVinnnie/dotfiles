@@ -35,7 +35,7 @@ end
 # Main
 ###############################################################################
 # See https://stackoverflow.com/questions/4474918/file-expand-path-gemfile-file-how-does-this-work-where-is-the-fil#4479926
-config_path = File.expand_path("../git-bash/findRepo.yaml", File.dirname(__FILE__))
+config_path = File.expand_path("~/repos.yaml", File.dirname(__FILE__))
 yaml_config = YAML.load_file(config_path)
 search_term = ARGV[0].downcase
 

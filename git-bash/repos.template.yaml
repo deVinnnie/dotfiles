@@ -1,0 +1,4 @@
+repositories:
+  - type: 'gitlab|github'
+    host: 'host.gitrepo.example.com'
+    private_token: 'privateTokenFromYourGitlabProfile'
