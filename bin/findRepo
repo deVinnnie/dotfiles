@@ -37,13 +37,22 @@ def get_gitlab_projects_json(repo, search_name)
   end
 end
 
+def read_config
+  # See https://stackoverflow.com/questions/4474918/file-expand-path-gemfile-file-how-does-this-work-where-is-the-fil#4479926
+  config_path = File.expand_path("~/repos.yaml", File.dirname(__FILE__))
+  begin
+    return YAML.load_file(config_path)
+  rescue Errno::ENOENT
+    exit 3 # No config, no repo
+  end
+end
+
 
 
 # Main
 ###############################################################################
 # See https://stackoverflow.com/questions/4474918/file-expand-path-gemfile-file-how-does-this-work-where-is-the-fil#4479926
-config_path = File.expand_path("~/repos.yaml", File.dirname(__FILE__))
-yaml_config = YAML.load_file(config_path)
+yaml_config = read_config()
 search_term = ARGV[0].downcase
 
 yaml_config['repositories'].each do |repo|
