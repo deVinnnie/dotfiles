@@ -101,8 +101,8 @@ function os
 }
 
 # The killing curse for OpenShift pods
-# Usage: `avada-kadavra pod-name-1 pod-name-2 ...`
-function avada-kadavra
+# Usage: `avada-kedavra pod-name-1 pod-name-2 ...`
+function avada-kedavra
 {
     for var in "$@"
     do
