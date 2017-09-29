@@ -1,0 +1,2 @@
+#!/bin/sh
+git log --shortstat --oneline --author="$1" | grep "files changed" | cut -d ' ' -f5,7 | awk '{added = added + $1 ; removed = removed + $2}END{print "added: " added "\nremoved: " removed"\n---------------\nnet added: " added - removed}'
