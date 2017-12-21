@@ -127,7 +127,7 @@ function docker-bash
 
 function java-8
 {
-    export JAVA_HOME=$JAVA_ROOT/sdk/1.8.0_60-x64/
+    export JAVA_HOME=$JAVA_ROOT/sdk/1.8.0_101-x64/
 }
 
 function java-7
