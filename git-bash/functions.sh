@@ -156,5 +156,17 @@ function cleanAll
     clean $DIRS
 }
 
+function failed
+{
+    FAILED_PODS=`oc.exe get pods -o template --template='{{range .items}}{{ if eq .status.phase "Failed" }}{{ .metadata.name }} {{ end }}{{ end }}'`
+    echo $FAILED_PODS # | sed "s/%/\\n/g" | grep "deploy" | grep -v "jenkins"
+}
+
+function removeFailed
+{
+  FAILED_PODS=`oc.exe get pods -o template --template='{{range .items}}{{ if eq .status.phase "Failed" }}{{ .metadata.name }} {{ end }}{{ end }}'`
+  oc.exe delete pod $FAILED_PODS --grace-period=0
+}
+
 # Initialize
 oc_project_refresh
