@@ -73,7 +73,7 @@ function oc_project_refresh
 {
     export OC_PROJECT=`oc.exe project --short`
     export SECRETS=`oc.exe get secrets --output=name | cut -d '/' -f 2 | sed 's/-secret//'`
-    export DEPLOYMENT_CONFIGS=`oc get dc --output=name | grep -oP '^deploymentconfig/\K.*'`
+    export DEPLOYMENT_CONFIGS=`oc.exe get dc --output=name | grep -oP '^deploymentconfig/\K.*'`
 }
 
 # Switch between Jenkins Servers
