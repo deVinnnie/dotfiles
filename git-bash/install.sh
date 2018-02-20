@@ -16,5 +16,5 @@ echo "export PROJECTS_DIR=$PROJECTS_DIR" >> $SECRET_FILE
 
 if [ ! -f ~/repos.yaml ]; then
   cp repos.template.yaml ~/repos.yaml
-  echo 'Please fill in repos.yaml if you want to p to auto-download repos'
+  echo 'Please fill in repos.yaml if you want the `p` command to auto-download repos'
 fi
