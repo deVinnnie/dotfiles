@@ -125,6 +125,22 @@ function docker-bash
     fi
 }
 
+# Do a docker push with the image name from the last run of docker build.
+#
+# Usage:
+#   ```
+#   docker build -t repo.something.be/some-image:some-tag
+#   docker-push-last
+#   ```
+#
+function docker-push-last
+{
+    IMAGE_FROM_LAST_BUILD=`docker images --format "{{.Repository}}:{{.Tag}}" | head -n 1`
+    echo "> docker push $IMAGE_FROM_LAST_BUILD"
+    docker push $IMAGE_FROM_LAST_BUILD
+}
+
+
 function java-8
 {
     export JAVA_HOME=$JAVA_ROOT/sdk/1.8.0_101-x64/
