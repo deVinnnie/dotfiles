@@ -28,14 +28,17 @@
       "exception-reporting"
       "language-coffee-script"
       "styleguide"
+      "dev-live-reload"
+      "github"
+      "package-generator"
     ]
     telemetryConsent: "no"
   editor:
-    fontSize: 18
+    fontSize: 17
     invisibles: {}
+    preferredLineLength: 70
     showIndentGuide: true
     showInvisibles: true
-    tabLength: 4
   minimap: {}
   "one-dark-ui": {}
   "spell-check": {}
