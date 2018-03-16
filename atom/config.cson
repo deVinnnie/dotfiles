@@ -1,4 +1,7 @@
 "*":
+  "autocomplete-plus":
+    confirmCompletion: "tab"
+    defaultProvider: "Symbol"
   core:
     autoHideMenuBar: true
     automaticallyUpdate: false
