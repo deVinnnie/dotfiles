@@ -140,6 +140,14 @@ function docker-push-last
     docker push $IMAGE_FROM_LAST_BUILD
 }
 
+function docker-cleanup
+{
+    # Remove running containers
+    docker rm $(docker ps -aq)
+    # Remove all images
+    docker rmi -f $(docker images -q -f dangling=true)
+}
+
 
 function java-8
 {
