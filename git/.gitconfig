@@ -11,6 +11,10 @@
 	hist = log --oneline --decorate --graph
 	st = status
 	co = checkout
-	
+
 [cola]
 	spellcheck = false
+
+[color "diff"]
+	whitespace = red reverse
+	
