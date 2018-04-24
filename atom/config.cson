@@ -29,7 +29,6 @@
       "language-coffee-script"
       "styleguide"
       "dev-live-reload"
-      "github"
       "package-generator"
     ]
     telemetryConsent: "no"
@@ -42,6 +41,8 @@
   minimap: {}
   "one-dark-ui": {}
   "spell-check": {}
+  "tree-view":
+    hideVcsIgnoredFiles: true
   welcome:
     showOnStartup: false
   whitespace:
