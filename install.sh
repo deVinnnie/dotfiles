@@ -15,10 +15,11 @@ ln -sfv $DOTFILES_DIR/atom/keymap.cson ~/.atom/keymap.cson
 
 ln -sfv $DOTFILES_DIR/gradle/gradle.properties ~/.gradle/gradle.properties
 
+mkdir ~/.IdeaIC2018.1/config/colors
 cd $DOTFILES_DIR/intellij
 for file in `find . -type f -name \* -print`
 do
-    ln -sfv $DOTFILES_DIR/$file ~/.IntelliJIdea2017.1/config/$file
+    ln -sfv $DOTFILES_DIR/$file ~/.IdeaIC2018.1/config/$file
 done
 
 ln -sfv $DOTFILES_DIR/bin/idea ~/bin/idea
