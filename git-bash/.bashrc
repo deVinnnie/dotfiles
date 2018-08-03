@@ -5,6 +5,7 @@ export OC_PROJECT=`oc.exe project --short`
 export SSL_CERT_FILE=/etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem
 
 source $DOTFILES/secret.sh
+source $DOTFILES/docker-config.sh
 source $DOTFILES/aliases.sh
 source $DOTFILES/functions.sh
 source $DOTFILES/prompt.sh
