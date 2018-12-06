@@ -64,6 +64,8 @@ PATH=$PATH:"~/.gem/ruby/2.3.0/bin"
 PATH=$PATH:"~/.gem/ruby/2.4.0/bin"
 export PATH
 
+NPM_PACKAGES="${HOME}/.npm-packages"
+PATH="$NPM_PACKAGES/bin:$PATH"
 
 # Aliases
 # ----------------------------------------------------------------------
