@@ -60,8 +60,7 @@ source $ZSH/oh-my-zsh.sh
 # ----------------------------------------------------------------------
 PATH=~/bin:$PATH
 PATH=~/bin/todo.txt_cli-2.10:$PATH
-PATH=$PATH:"~/.gem/ruby/2.3.0/bin"
-PATH=$PATH:"~/.gem/ruby/2.4.0/bin"
+PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 export PATH
 
 NPM_PACKAGES="${HOME}/.npm-packages"
