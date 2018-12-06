@@ -1,4 +1,7 @@
 "*":
+  "atom-ide-ui":
+    "atom-ide-code-format":
+      formatOnSave: true
   "autocomplete-plus":
     confirmCompletion: "tab"
     defaultProvider: "Symbol"
@@ -7,13 +10,11 @@
     automaticallyUpdate: false
     disabledPackages: [
       "metrics"
-      "spell-check"
       "autosave"
       "background-tips"
       "bookmarks"
       "language-objective-c"
       "language-csharp"
-      "language-go"
       "archive-view"
       "language-clojure"
       "language-mustache"
@@ -30,17 +31,33 @@
       "styleguide"
       "dev-live-reload"
       "package-generator"
+      "minimap"
     ]
+    excludeVcsIgnoredPaths: false
     telemetryConsent: "no"
   editor:
-    fontSize: 17
+    fontSize: 18
     invisibles: {}
     preferredLineLength: 70
     showIndentGuide: true
     showInvisibles: true
+  "markdown-preview":
+    grammars: [
+      "source.gfm"
+      "source.litcoffee"
+      "text.html.basic"
+      "text.md"
+      "text.plain"
+      "text.plain.null-grammar"
+      "text.page"
+    ]
   minimap: {}
   "one-dark-ui": {}
-  "spell-check": {}
+  "spell-check":
+    locales: [
+      "nl-BE"
+    ]
+  "status-bar": {}
   "tree-view":
     hideVcsIgnoredFiles: true
   welcome:
