@@ -80,4 +80,4 @@ alias g='git $@'
 
 # Environment variables
 # ----------------------------------------------------------------------
-export EDITOR=/usr/bin/geany
+export EDITOR=/usr/bin/vim
