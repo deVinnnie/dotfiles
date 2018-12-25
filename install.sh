@@ -22,5 +22,4 @@ do
     ln -sfv $DOTFILES_DIR/$file ~/.IdeaIC2018.1/config/$file
 done
 
-ln -sfv $DOTFILES_DIR/bin/idea ~/bin/idea
 ln -sfv $DOTFILES_DIR/bin/markdown-all.sh ~/bin/markdown-all.sh
