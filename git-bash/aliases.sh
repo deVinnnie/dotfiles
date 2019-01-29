@@ -11,6 +11,6 @@ alias g='git $@'
 
 # Change directory to root of the current git repo.
 alias root='cd "$(git rev-parse --show-toplevel)"' # https://stackoverflow.com/questions/1571461/git-a-quick-command-to-go-to-root-of-the-working-tree
-alias gitk='gitk &'
+alias gitk='gitk $@ &'
 # Add bin directory to path
 PATH=$PATH:$DOTFILES/bin/
