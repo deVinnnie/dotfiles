@@ -31,7 +31,6 @@
       "styleguide"
       "dev-live-reload"
       "package-generator"
-      "minimap"
     ]
     excludeVcsIgnoredPaths: false
     telemetryConsent: "no"
