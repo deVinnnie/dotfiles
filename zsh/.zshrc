@@ -1,3 +1,6 @@
+DOTFILES_DIR="$HOME/.dotfiles"
+fpath=($DOTFILES_DIR/autocomplete $fpath)
+
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
@@ -81,3 +84,7 @@ alias g='git $@'
 # Environment variables
 # ----------------------------------------------------------------------
 export EDITOR=/usr/bin/vim
+export PROJECTS_DIR=~/Development/Repos
+# Functions
+# ----------------------------------------------------------------------
+source $DOTFILES_DIR/scripts/p.sh
