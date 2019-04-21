@@ -1,3 +1,6 @@
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+    source /etc/profile.d/vte.sh
+fi
 DOTFILES_DIR="$HOME/.dotfiles"
 fpath=($DOTFILES_DIR/autocomplete $fpath)
 
