@@ -4,7 +4,9 @@ set nocompatible
 set noshowmode
 filetype off
 
+" Airline
 let g:airline_theme='deus'
+set ttimeoutlen=50
 
 " Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
