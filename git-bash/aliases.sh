@@ -14,3 +14,5 @@ alias root='cd "$(git rev-parse --show-toplevel)"' # https://stackoverflow.com/q
 alias gitk='gitk $@ &'
 # Add bin directory to path
 PATH=$PATH:$DOTFILES/bin/
+
+export VIMINIT='let $MYVIMRC="$DOTFILES/../vim/.vimrc" | source $MYVIMRC'
