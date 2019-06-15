@@ -19,3 +19,7 @@ Plugin 'vim-airline/vim-airline-themes'
 call vundle#end()
 
 filetype plugin indent on
+
+set colorcolumn=80
+highlight ColorColumn ctermbg=5
+
