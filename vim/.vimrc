@@ -32,3 +32,6 @@ highlight ColorColumn ctermbg=5
 
 let g:zenburn_transparent = 1
 colorscheme zenburn
+
+" Hide pipes in gutters between splits
+hi VertSplit ctermbg=None guibg=NONE
