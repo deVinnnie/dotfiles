@@ -8,6 +8,12 @@ filetype off
 let g:airline_theme='deus'
 set ttimeoutlen=50
 
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+let g:airline_symbols.maxlinenr=''
+
 " Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
