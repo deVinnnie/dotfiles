@@ -83,6 +83,9 @@ alias git-cola='~/bin/git-cola.sh'
 alias ij='~/bin/idea . &'
 alias l='ls'
 alias g='git $@'
+function cd {
+    builtin cd "$@" && ls
+}
 
 # Environment variables
 # ----------------------------------------------------------------------
