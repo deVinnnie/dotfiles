@@ -89,6 +89,10 @@ function cd {
 # ----------------------------------------------------------------------
 export EDITOR=/usr/bin/vim
 export PROJECTS_DIR=~/Development/Repos
+
+# Disable less search history
+export LESSHISTFILE=-
+
 # Functions
 # ----------------------------------------------------------------------
 source $DOTFILES_DIR/scripts/p.sh
