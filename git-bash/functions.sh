@@ -148,6 +148,10 @@ function docker-cleanup
     docker rmi -f $(docker images -q -f dangling=true)
 }
 
+function java-11
+{
+    export JAVA_HOME=$JAVA_ROOT/sdk/11.0.2-openjdk-x64/
+}
 
 function java-8
 {
