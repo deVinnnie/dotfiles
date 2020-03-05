@@ -196,10 +196,6 @@ function removeFailed
   oc.exe delete pod $FAILED_PODS --grace-period=0
 }
 
-# Initialize
-oc_project_refresh
-
-
 function dc_trace_cmd() {
   local parent=`docker inspect -f '{{ .Parent }}' $1` 2>/dev/null
   declare -i level=$2
