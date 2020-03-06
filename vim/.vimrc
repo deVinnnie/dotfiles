@@ -1,8 +1,9 @@
 syntax on
-
 set nocompatible
 set noshowmode
 filetype off
+
+set omnifunc=syntaxcomplete#Complete
 
 " Airline
 let g:airline_theme='deus'
@@ -22,6 +23,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'airblade/vim-gitgutter'
@@ -48,3 +50,5 @@ map <C-n> :NERDTreeToggle<CR>
 " Toggle distraction free mode
 map <C-g> <Esc>:Goyo<CR>
 imap <C-g> <Esc>:Goyo<CR>
+
+autocmd FileType python setlocal completeopt-=preview
