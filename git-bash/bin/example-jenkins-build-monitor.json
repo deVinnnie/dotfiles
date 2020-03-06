@@ -1,0 +1,40 @@
+{
+  "_class" : "com.smartcodeltd.jenkinsci.plugins.buildmonitor.BuildMonitorView",
+  "description" : null,
+  "jobs" : [
+    {
+      "_class" : "org.jenkinsci.plugins.workflow.job.WorkflowJob",
+      "name" : "successful-job",
+      "url" : "http://jenkins/job/successful-job/",
+      "color" : "blue"
+    },
+    {
+      "_class" : "org.jenkinsci.plugins.workflow.job.WorkflowJob",
+      "name" : "busy-successful-job",
+      "url" : "http://jenkins/job/busy-successful-job",
+      "color" : "blue_anime"
+    },
+    {
+      "_class" : "org.jenkinsci.plugins.workflow.job.WorkflowJob",
+      "name" : "unstable-job",
+      "url" : "http://jenkins/job/unstable-job/",
+      "color" : "yellow"
+    },
+    {
+      "_class" : "org.jenkinsci.plugins.workflow.job.WorkflowJob",
+      "name" : "busy-job",
+      "url" : "http://jenkins/job/busy-job/",
+      "color" : "yellow_anime"
+    },
+    {
+      "_class" : "hudson.model.FreeStyleProject",
+      "name" : "broken-job",
+      "url" : "http://jenkins/job/broken-job/",
+      "color" : "red"
+    }
+  ],
+  "name" : "Mock",
+  "property" : [
+  ],
+  "url" : "http://jenkins/view/Mock/"
+}
