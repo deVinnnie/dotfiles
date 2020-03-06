@@ -1,0 +1,19 @@
+# Feh does this weird thing where the binary name is used as theme name
+# This means that symlink to feh would load a different theme.
+# Abuse this to define a default theme for feh.
+# The 'feh' below is thus the name of theme.
+#
+# Default theme does:
+# - Draw filename
+# - Don't show menus
+# - Black background instead of checkers
+# - Add an action to trash an image. The default hard remove is mapped to this action
+# in feh/keys. I don't want to accidently lose files...
+feh -B black \
+-d \
+-N \
+--geometry 800x650 \
+--scale-down \
+--auto-zoom \
+--auto-rotate \
+--action9 "gio trash '%f'"

@@ -1,0 +1,4 @@
+# Unset the Ctrl-Delete key, which hard rm's an image
+# https://github.com/derf/feh/issues/187
+delete
+action_9 C-d C-Delete
