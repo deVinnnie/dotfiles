@@ -22,6 +22,10 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'scrooloose/nerdtree'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'junegunn/goyo.vim'
 call vundle#end()
 
 filetype plugin indent on
@@ -37,3 +41,9 @@ colorscheme zenburn
 hi VertSplit ctermbg=8 guibg=bg ctermfg=bg guifg=bg
 set fillchars+=vert:\│
 
+" Map NerdTree to a dedicated shortcut
+map <C-n> :NERDTreeToggle<CR>
+
+" Toggle distraction free mode
+map <C-g> <Esc>:Goyo<CR>
+imap <C-g> <Esc>:Goyo<CR>
