@@ -32,6 +32,7 @@ filetype plugin indent on
 
 set colorcolumn=80
 highlight ColorColumn ctermbg=5
+set tabstop=4
 
 
 let g:zenburn_transparent = 1
