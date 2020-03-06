@@ -15,6 +15,9 @@ endif
 
 let g:airline_symbols.maxlinenr=''
 
+" Limelight
+let g:limelight_conceal_ctermfg = 'DarkGrey'
+
 " Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -28,6 +31,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/limelight.vim'
 call vundle#end()
 
 filetype plugin indent on
