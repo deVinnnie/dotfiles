@@ -98,3 +98,6 @@ export LESSHISTFILE=-
 # Functions
 # ----------------------------------------------------------------------
 source $DOTFILES_DIR/scripts/p.sh
+
+# Disable Ctrl-s / Ctrl-q
+stty -ixon
