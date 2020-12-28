@@ -82,6 +82,8 @@ alias ij='~/bin/idea . &'
 alias l='ls'
 alias g='git $@'
 alias mvn="mvn -s ~/.config/maven/settings.xml $@"
+alias reload="src"
+alias refresh="src"
 
 function cd {
     builtin cd "$@" && ls
