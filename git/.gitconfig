@@ -9,6 +9,7 @@
 
 [alias]
 	hist = log --oneline --decorate --graph
+	h = log --oneline --decorate --graph
 	st = status
 	co = checkout
 
