@@ -6,7 +6,7 @@ alias jenkins='$JAVA_HOME/jre/bin/java -jar /c/dev/common/jenkins-cli/jenkins-cl
 alias refresh='source ~/.bashrc'
 alias l='ls'
 alias g='git $@'
-alias mvn='mvn.cmd $@'
+alias mvn='/c/dev/tools/apache-maven-3.6.3/bin/mvn.cmd $@'
 alias jq='/c/dev/tools/jq-win64.exe -C $@'
 alias t='tig status'
 
