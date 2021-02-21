@@ -10,8 +10,6 @@ ln -sfv $DOTFILES_DIR/.tmux.conf ~/.tmux.conf
 ln -sfv $DOTFILES_DIR/.editorconfig ~/.editorconfig
 ln -sfv $DOTFILES_DIR/feh/themes ~/.config/feh/themes
 ln -sfv $DOTFILES_DIR/feh/keys ~/.config/feh/keys
-ln -sfv $DOTFILES_DIR/atom/config.cson ~/.atom/config.cson
-ln -sfv $DOTFILES_DIR/atom/keymap.cson ~/.atom/keymap.cson
 
 ln -sfv $DOTFILES_DIR/gradle/gradle.properties ~/.gradle/gradle.properties
 

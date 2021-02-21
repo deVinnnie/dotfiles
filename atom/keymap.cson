@@ -1,3 +1,0 @@
-'body':
-  'ctrl-w': 'tree-view:toggle'
-  'ctrl-q': 'unset!'
