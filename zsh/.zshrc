@@ -81,6 +81,7 @@ alias git-cola='~/bin/git-cola.sh'
 alias ij='~/bin/idea . &'
 alias l='ls'
 alias g='git $@'
+alias t='tig status'
 alias mvn="mvn -s ~/.config/maven/settings.xml $@"
 alias reload="src"
 alias refresh="src"
