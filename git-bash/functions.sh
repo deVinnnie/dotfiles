@@ -196,6 +196,12 @@ function removeFailed
   oc.exe delete pod $FAILED_PODS --grace-period=0
 }
 
+function removeCompleted
+{
+  COMPLETED_PODS=`oc get pods | grep 'Completed\|ImagePullBackOff' | cut -d " " -f 1`
+  oc.exe delete pod $COMPLETED_PODS --grace-period=0
+}
+
 function dc_trace_cmd() {
   local parent=`docker inspect -f '{{ .Parent }}' $1` 2>/dev/null
   declare -i level=$2
