@@ -1,6 +1,7 @@
 syntax on
 set nocompatible
 set noshowmode
+set mouse=a
 filetype off
 
 set omnifunc=syntaxcomplete#Complete
