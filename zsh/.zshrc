@@ -86,6 +86,12 @@ alias mvn="mvn -s ~/.config/maven/settings.xml $@"
 alias reload="src"
 alias refresh="src"
 
+# Do file operations with 'interactive' mode,
+# to avoid accidental mayhem.
+alias cp='cp -iv'
+alias rm='rm -iv'
+alias mv='mv -iv'
+
 function cd {
     builtin cd "$@" && ls
 }
