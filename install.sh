@@ -10,6 +10,7 @@ ln -sfv $DOTFILES_DIR/.tmux.conf ~/.tmux.conf
 ln -sfv $DOTFILES_DIR/.editorconfig ~/.editorconfig
 ln -sfv $DOTFILES_DIR/feh/themes ~/.config/feh/themes
 ln -sfv $DOTFILES_DIR/feh/keys ~/.config/feh/keys
+stow alacritty
 
 ln -sfv $DOTFILES_DIR/gradle/gradle.properties ~/.gradle/gradle.properties
 
