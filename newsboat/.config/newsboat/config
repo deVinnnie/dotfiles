@@ -1,0 +1,16 @@
+browser "firefox --new-tab %u"
+
+color listfocus magenta black bold
+color listfocus_unread magenta black bold
+color info yellow black bold
+
+bind-key j down
+bind-key k up
+bind-key j next articlelist
+bind-key k prev articlelist
+bind-key J next-feed articlelist
+bind-key K prev-feed articlelist
+bind-key ^U pageup
+bind-key ^D pagedown
+
+text-width 60
