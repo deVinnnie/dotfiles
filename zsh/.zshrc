@@ -48,7 +48,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git pip zsh_reload colorize colored-man-pages docker mvn)
+plugins=(git pip zsh_reload colorize docker mvn)
 
 # User configuration
 export PATH="$HOME/bin:/usr/lib/hardening-wrapper/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin"
@@ -109,6 +109,22 @@ export LESSHISTFILE=-
 # Functions
 # ----------------------------------------------------------------------
 source $DOTFILES_DIR/scripts/p.sh
+
+
+# Magic incantantions to colorize man pages
+# ----------------------------------------------------------------------
+# bold & blinking mode
+export LESS_TERMCAP_mb="${fg_bold[red]}"
+export LESS_TERMCAP_md="${fg_bold[red]}"
+export LESS_TERMCAP_me="${reset_color}"
+# standout mode / info box down the bottom thing
+export LESS_TERMCAP_so="${fg_bold[yellow]}"
+export LESS_TERMCAP_se="${reset_color}"
+# underlining
+export LESS_TERMCAP_us="${fg_bold[green]}"
+export LESS_TERMCAP_ue="${reset_color}"
+
+
 
 # Disable Ctrl-s / Ctrl-q
 stty -ixon
