@@ -16,4 +16,8 @@ bind-key ^D pagedown
 text-width 60
 datetime-format "%Y-%m-%d"
 
+# Default format string without the article length thingy
+# https://newsboat.org/releases/2.24/docs/newsboat.html#articlelist-format
+articlelist-format "%4i %f %D   %?T?|%-17T| ?%t"
+
 reload-threads 2
