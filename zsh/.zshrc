@@ -85,7 +85,7 @@ alias t='tig status'
 alias mvn="mvn -s ~/.config/maven/settings.xml $@"
 alias reload="src"
 alias refresh="src"
-alias newsboat="LANG=en newsboat --quiet $@" # Make newsboat less noisy
+alias newsboat="LANG=en LC_ALL=en_US.UTF-8 newsboat --quiet $@" # Make newsboat less noisy
 alias nw=newsboat
 
 # Do file operations with 'interactive' mode,
