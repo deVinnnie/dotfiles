@@ -14,3 +14,5 @@ bind-key ^U pageup
 bind-key ^D pagedown
 
 text-width 60
+
+reload-threads 2
