@@ -14,5 +14,6 @@ bind-key ^U pageup
 bind-key ^D pagedown
 
 text-width 60
+datetime-format "%Y-%m-%d"
 
 reload-threads 2
