@@ -1,3 +1,8 @@
+# Use same autocomplete for 'g' alias as git.
+# By default the autocomplete is not triggered when using the alias.
+# Existing autocompletions are listed with `complete -p git`
+complete -o bashdefault -o default -o nospace -F __git_wrap__git_main g
+
 __p_autocomplete()
 {
     PROJECTS=`ls $PROJECTS_DIR`
