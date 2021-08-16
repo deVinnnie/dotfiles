@@ -6,6 +6,12 @@ if [ -n "$DESKTOP_SESSION" ];then
     eval $(gnome-keyring-daemon --start)
     export SSH_AUTH_SOCK
 fi
+
+# Automatically launch tmux. But not tmux in tmux.
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux
+fi
+
 DOTFILES_DIR="$HOME/.dotfiles"
 fpath=($DOTFILES_DIR/autocomplete $fpath)
 
