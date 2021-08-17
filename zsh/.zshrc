@@ -76,7 +76,6 @@ PATH="$NPM_PACKAGES/bin:$PATH"
 
 # Aliases
 # ----------------------------------------------------------------------
-alias todo='todo.sh -d ~/bin/todo.txt_cli-2.10/todo.cfg'
 alias grep='grep --color=auto'
 alias ls='ls -h --color=auto'
 alias wake='wol 00:19:d1:89:58:36'
