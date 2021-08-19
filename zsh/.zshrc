@@ -112,6 +112,7 @@ export LESSHISTFILE=-
 # Functions
 # ----------------------------------------------------------------------
 source $DOTFILES_DIR/scripts/p.sh
+source $DOTFILES_DIR/scripts/git-prompt.sh
 
 
 # Magic incantantions to colorize man pages
@@ -128,6 +129,14 @@ export LESS_TERMCAP_us="${fg_bold[green]}"
 export LESS_TERMCAP_ue="${reset_color}"
 
 
+# Prompt
+# ----------------------------------------------------------------------
+setopt prompt_subst
+NEWLINE=$'\n'
+PROMPT='%F{cyan}%c%f'
+PROMPT="$PROMPT"'`__fastgit_ps1`'
+PROMPT="$PROMPT${NEWLINE}"
+PROMPT="$PROMPT→ "
 
 # Disable Ctrl-s / Ctrl-q
 stty -ixon

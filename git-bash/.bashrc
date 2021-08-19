@@ -10,5 +10,6 @@ source $DOTFILES/secret.sh
 source $DOTFILES/docker-config.sh
 source $DOTFILES/aliases.sh
 source $DOTFILES/functions.sh
+source $DOTFILES/../scripts/git-prompt.sh
 source $DOTFILES/prompt.sh
 source $DOTFILES/autocomplete.sh
