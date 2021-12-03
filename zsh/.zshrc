@@ -86,8 +86,7 @@ alias l='ls'
 alias g='git $@'
 alias t='tig status'
 alias mvn="mvn -s ~/.config/maven/settings.xml $@"
-alias reload="src"
-alias refresh="src"
+alias refresh="exec zsh"
 alias newsboat="LANG=en LC_ALL=en_US.UTF-8 newsboat --quiet $@" # Make newsboat less noisy
 alias nw=newsboat
 
