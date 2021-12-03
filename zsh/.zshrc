@@ -89,6 +89,8 @@ alias mvn="mvn -s ~/.config/maven/settings.xml $@"
 alias refresh="exec zsh"
 alias newsboat="LANG=en LC_ALL=en_US.UTF-8 newsboat --quiet $@" # Make newsboat less noisy
 alias nw=newsboat
+export PYGMENTIZE_STYLE='zenburn' # Used as color theme to preview text-files in ranger.
+alias r='ranger'
 
 # Do file operations with 'interactive' mode,
 # to avoid accidental mayhem.
