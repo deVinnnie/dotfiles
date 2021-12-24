@@ -58,3 +58,8 @@ map <C-g> <Esc>:Goyo<CR>
 imap <C-g> <Esc>:Goyo<CR>
 
 autocmd FileType python setlocal completeopt-=preview
+
+" Reselect visual selection after indentation
+vnoremap < <gv
+vnoremap > >gv
+
