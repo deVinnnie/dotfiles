@@ -34,6 +34,7 @@ Plugin 'ryanoasis/vim-devicons'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
+Plugin 'tpope/vim-commentary'
 call vundle#end()
 
 filetype plugin indent on
