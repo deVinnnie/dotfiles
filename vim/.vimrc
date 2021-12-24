@@ -5,6 +5,7 @@ set mouse=a
 filetype off
 
 set omnifunc=syntaxcomplete#Complete
+set scrolloff=5
 
 " Airline
 let g:airline_theme='deus'
