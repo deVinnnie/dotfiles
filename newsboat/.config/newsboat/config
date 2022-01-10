@@ -21,3 +21,5 @@ datetime-format "%Y-%m-%d"
 articlelist-format "%4i %f %D   %?T?|%-17T| ?%t"
 
 reload-threads 2
+
+confirm-mark-feed-read no
