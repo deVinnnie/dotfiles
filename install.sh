@@ -12,7 +12,6 @@ ln -sfv $DOTFILES_DIR/feh/themes ~/.config/feh/themes
 ln -sfv $DOTFILES_DIR/feh/keys ~/.config/feh/keys
 stow alacritty zathura newsboat
 
-ln -sfv $DOTFILES_DIR/gradle/gradle.properties ~/.gradle/gradle.properties
 
 mkdir ~/.IdeaIC2018.1/config/colors
 cd $DOTFILES_DIR/intellij
