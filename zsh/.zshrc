@@ -56,8 +56,6 @@ HIST_STAMPS="yyyy-mm-dd"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(zsh_reload)
 
-# User configuration
-export PATH="$HOME/bin:/usr/lib/hardening-wrapper/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -75,6 +73,7 @@ export FZF_CTRL_T_COMMAND="fd --hidden --exclude .git --type f"
 
 # Path
 # ----------------------------------------------------------------------
+export PATH="$HOME/bin:/usr/lib/hardening-wrapper/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin"
 PATH=~/bin:$PATH
 export PATH
 
