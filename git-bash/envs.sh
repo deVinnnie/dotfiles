@@ -1,5 +1,9 @@
 export VIMINIT='let $MYVIMRC="$DOTFILES/../vim/.vimrc" | source $MYVIMRC'
 
+# Retain more history.
+export HISTSIZE=100000
+export HISTFILESIZE=100000
+
 # --------------------------
 # Maven
 # --------------------------
