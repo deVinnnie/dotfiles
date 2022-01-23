@@ -50,7 +50,7 @@ highlight Normal ctermbg=NONE
 highlight LineNr ctermbg=NONE
 
 " Force continous line gutters between splits
-hi VertSplit ctermbg=8 guibg=bg ctermfg=bg guifg=bg
+highlight VertSplit ctermbg=NONE ctermfg=8 cterm=NONE term=NONE gui=NONE guifg=NONE guibg=NONE
 set fillchars+=vert:\│
 
 " Map NerdTree to a dedicated shortcut
