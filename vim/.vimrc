@@ -46,6 +46,8 @@ set tabstop=4
 
 let g:zenburn_transparent = 1
 colorscheme zenburn
+highlight Normal ctermbg=NONE
+highlight LineNr ctermbg=NONE
 
 " Force continous line gutters between splits
 hi VertSplit ctermbg=8 guibg=bg ctermfg=bg guifg=bg
@@ -57,6 +59,14 @@ map <C-n> :NERDTreeToggle<CR>
 " Toggle distraction free mode
 map <C-g> <Esc>:Goyo<CR>
 imap <C-g> <Esc>:Goyo<CR>
+
+function! s:goyo_leave()
+    " Leaving goyo somehow removes transparency.
+    " Explitly make stuff transparent again here.
+    highlight Normal guibg=NONE ctermbg=NONE
+endfunction
+
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 autocmd FileType python setlocal completeopt-=preview
 
