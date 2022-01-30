@@ -25,3 +25,5 @@
 [tig "bind"]
     # '>' == immediately reopen tig after command
     status = C >git commit
+    status = A >git commit --amend
+
