@@ -18,6 +18,10 @@
 
 [color "diff"]
 	whitespace = red reverse
-	
+
 [init]
 	defaultBranch = master
+
+[tig "bind"]
+    # '>' == immediately reopen tig after command
+    status = C >git commit
