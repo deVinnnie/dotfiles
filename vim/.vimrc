@@ -35,6 +35,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
 Plugin 'tpope/vim-commentary'
+Plugin 'iberianpig/tig-explorer.vim'
 call vundle#end()
 
 filetype plugin indent on
