@@ -1,0 +1,8 @@
+[Unit]
+Description=Timer to reload all feeds in newsboat
+
+[Timer]
+OnBootSec=2m
+
+[Install]
+WantedBy=timers.target

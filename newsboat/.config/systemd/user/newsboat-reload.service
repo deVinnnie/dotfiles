@@ -1,0 +1,5 @@
+[Unit]
+Description=Reload all feeds in newsboat
+
+[Service]
+ExecStart=newsboat -x reload
