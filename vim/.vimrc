@@ -20,6 +20,15 @@ let g:airline_symbols.maxlinenr=''
 " Limelight
 let g:limelight_conceal_ctermfg = 'DarkGrey'
 
+" CtrlP
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|node_modules\|log\|tmp$',
+  \ 'file': '\.so$\|\.dat$|\.DS_Store$'
+  \ }
+map <space><space> :CtrlP<CR>
+map <space>b :CtrlPBuffer<CR>
+map <space>fr :CtrlPMRU<CR>
+
 " Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -36,6 +45,7 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'iberianpig/tig-explorer.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 call vundle#end()
 
 filetype plugin indent on
