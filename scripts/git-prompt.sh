@@ -50,7 +50,7 @@ function __fastgit_ps1 () {
     if [ -e "$headfile" ]; then
         read -r head < "$headfile" || return
         case "$head" in
-            ref:*) branch="${head##*/}" ;;
+            ref:*) branch="${head##*/heads/}" ;;
             "") branch="" ;;
             *) branch="detached ${head:0:7}" ;;
         esac
