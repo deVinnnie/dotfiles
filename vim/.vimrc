@@ -68,7 +68,8 @@ set fillchars+=vert:\│
 map <C-n> :NERDTreeToggle<CR>
 
 " Toggle distraction free mode
-map <C-g> <Esc>:Goyo<CR>
+" Silent removes the ':Goyo' from the command buffer
+map <silent> <C-g> <Esc>:Goyo<CR>
 imap <C-g> <Esc>:Goyo<CR>
 
 function! s:goyo_leave()
