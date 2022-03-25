@@ -25,9 +25,6 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\.git$\|node_modules\|log\|tmp$',
   \ 'file': '\.so$\|\.dat$|\.DS_Store$'
   \ }
-map <space><space> :CtrlP<CR>
-map <space>b :CtrlPBuffer<CR>
-map <space>fr :CtrlPMRU<CR>
 
 " Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -44,6 +41,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
 Plugin 'tpope/vim-commentary'
+Plugin 'liuchengxu/vim-which-key'
 Plugin 'iberianpig/tig-explorer.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 call vundle#end()
@@ -81,6 +79,32 @@ endfunction
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 autocmd FileType python setlocal completeopt-=preview
+
+" Space menu with which-key
+" - https://github.com/liuchengxu/vim-which-key#installation
+" - https://jay-baker.com/posts/vim-1-which-key/
+let mapleader = " "
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+
+let g:which_key_map = {}
+
+let g:which_key_map['g'] = [ ':Goyo', 'goyo' ]
+let g:which_key_map['n'] = [ ':NERDTreeToggle', 'nerdtree' ]
+let g:which_key_map['b'] = [ ':CtrlPBuffer', 'buffers' ]
+let g:which_key_map[' '] = [ ':CtrlP', 'fuzzy find' ]
+
+let g:which_key_map.f = {
+      \ 'name': '+files',
+      \ 'r' : [ ':CtrlPMRU', 'recent' ],
+      \ 'f' : [ ':NERDTreeFind', 'reveal in tree' ],
+      \ }
+
+let g:which_key_map.o = {
+      \ 'name': '+open',
+      \ 'q' : [ ':copen', 'open-quickfix' ],
+      \ }
+
+call which_key#register('<Space>', "g:which_key_map")
 
 " Reselect visual selection after indentation
 vnoremap < <gv
