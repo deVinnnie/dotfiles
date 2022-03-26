@@ -110,3 +110,9 @@ call which_key#register('<Space>', "g:which_key_map")
 vnoremap < <gv
 vnoremap > >gv
 
+" Make gutter transparent
+highlight SignColumn ctermbg=NONE
+highlight GitGutterAdd    guifg=#009900 ctermfg=2 ctermbg=NONE
+highlight GitGutterChange guifg=#bbbb00 ctermfg=3 ctermbg=NONE
+highlight GitGutterDelete guifg=#ff2222 ctermfg=1 ctermbg=NONE
+
