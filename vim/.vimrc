@@ -26,6 +26,9 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\.so$\|\.dat$|\.DS_Store$'
   \ }
 
+" Make the window higher
+let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:15'
+
 " Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
