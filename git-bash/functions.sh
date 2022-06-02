@@ -148,20 +148,34 @@ function docker-cleanup
     docker rmi -f $(docker images -q -f dangling=true)
 }
 
+function update-java-version-in-prompt
+{
+    # $ cat $JAVA_HOME/release
+    # IMPLEMENTOR="Eclipse Adoptium"
+    # IMPLEMENTOR_VERSION="Temurin-17.0.3+7"
+    # JAVA_VERSION="17.0.3"
+    # JAVA_VERSION_DATE="2022-04-19
+    export PROMPT_JAVA_VERSION=" "$(cat $JAVA_HOME/release | grep 'JAVA_VERSION=' | cut -d '=' -f2 | tr -d '"')""
+}
 function java-11
 {
     export JAVA_HOME=$JAVA_ROOT/sdk/11.0.2-openjdk-x64/
+    update-java-version-in-prompt
 }
 
 function java-8
 {
     export JAVA_HOME=$JAVA_ROOT/sdk/1.8.0_101-x64/
+    update-java-version-in-prompt
 }
 
 function java-7
 {
     export JAVA_HOME=$JAVA_ROOT/sdk/1.7.0_40-x64/
+    update-java-version-in-prompt
 }
+
+java-11
 
 # Run `mvn clean` for each specified project.
 #

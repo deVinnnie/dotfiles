@@ -7,5 +7,6 @@ function __jenkins_ps1
 
 PS1='\['${COLOR_CYAN_BOLD}'\]\W\['${COLOR_RESET}'\]'
 PS1="$PS1"'`__fastgit_ps1`'
+PS1="$PS1"" "'$PROMPT_JAVA_VERSION'
 PS1="$PS1"'\n'
 PS1="$PS1→ "
