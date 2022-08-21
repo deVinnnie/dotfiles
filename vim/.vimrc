@@ -29,26 +29,6 @@ let g:ctrlp_custom_ignore = {
 " Make the window higher
 let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:15'
 
-" Vundle
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'junegunn/goyo.vim'
-Plugin 'junegunn/limelight.vim'
-Plugin 'tpope/vim-commentary'
-Plugin 'liuchengxu/vim-which-key'
-Plugin 'iberianpig/tig-explorer.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
-call vundle#end()
-
 filetype plugin indent on
 
 set colorcolumn=80
