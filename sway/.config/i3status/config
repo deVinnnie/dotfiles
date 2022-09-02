@@ -1,0 +1,91 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+general {
+        colors = true
+        interval = 15
+        output_format = i3bar
+
+        # The man page for i3status is really confusing for this pango stuff.
+        # Here's a clarifying example: https://forum.manjaro.org/t/drawing-boxes-around-i3status-elements/64261/2
+        markup = "pango"
+
+        separator = ""
+}
+
+order += "wireless _first_"
+order += "ethernet _first_"
+order += "battery all"
+order += "volume master"
+order += "cpu_temperature 0"
+order += "tztime local"
+
+wireless _first_ {
+        format_up = ""
+        format_down = " "
+
+        color_degraded = "#FFFFFF"
+        color_good = "#FFFFFF"
+        color_bad = "#999999"
+
+        separator_block_width = 16
+}
+
+ethernet _first_ {
+        format_up = ""
+        format_down = ""
+
+        color_degraded = "#FFFFFF"
+        color_bad = "#999999"
+
+        separator_block_width = 16
+}
+
+battery all {
+        integer_battery_capacity = true
+        # %remaining only shows when battery is discharging
+        format = "<span foreground='#87af87'>%status %percentage %remaining</span>"
+        status_chr = ""
+        status_bat = ""
+        status_unk = ""
+        status_full = ""
+        low_threshold = 30
+        threshold_type = percentage
+
+        separator_block_width = 16
+}
+
+tztime local {
+        # This broke in 2.14 (https://github.com/i3/i3status/issues/466)
+        #format = "<span foreground='#ffffff'> %time </span>"
+        #format_time = "%Y-%m-%d %H:%M"
+
+        # format_time = "%Y-%m-%d %H:%M"
+        format = "<span foreground='#ffffff'> %Y-%m-%d %H:%M </span>"
+
+        separator_block_width = 16
+}
+
+cpu_temperature 0 {
+        format = "" # Only bother me when it's too hot.
+        format_above_threshold = "<span foreground='#d78787'> %degrees°C</span>"
+        max_threshold = 65
+
+        separator_block_width = 16
+}
+
+volume master {
+        format_muted = "<span foreground='#afafaf'> %volume</span>"
+        format = "<span foreground='#ffffff'>蓼 %volume</span>"
+
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
+
+        separator_block_width = 16
+}
