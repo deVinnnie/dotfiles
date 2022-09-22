@@ -13,8 +13,7 @@ export RESET='\\e[0m'
 while :
 do
     JOBS=$(curl -s $JENKINS_DASHBOARD \
-        | jq-win64.exe '.jobs[] | "$" + (.color | ascii_upcase) + " " + .name + "$RESET"' \
-        | tr -d '"' \
+        | jq-win64.exe --raw-output '.jobs[] | "$" + (.color | ascii_upcase) + " " + .name + "$RESET"' \
         | sed "s/\$RESET/$RESET/g" \
         | sed "s/\$BLUE_ANIME/$BLUE_ANIME/g" \
         | sed "s/\$BLUE/$BLUE/g" \
