@@ -26,6 +26,7 @@ do
         | sed "s/\$RED/\\$RED/g" \
         | sed "s/\$YELLOW_ANIME/\\$YELLOW_ANIME/g" \
         | sed "s/\$YELLOW/\\$YELLOW/g" \
+        | sed "s/\$NOTBUILT/\\$ABORTED/g" \
         | sed "s/\$ABORTED_ANIME/\\$ABORTED_ANIME/g" \
         | sed "s/\$ABORTED/\\$ABORTED/g")
     clear
