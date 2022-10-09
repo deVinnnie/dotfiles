@@ -14,6 +14,7 @@ git clone https://github.com/airblade/vim-gitgutter.git || true
 git clone https://github.com/junegunn/goyo.vim.git || true
 git clone https://github.com/junegunn/limelight.vim.git || true
 git clone https://github.com/tpope/vim-commentary.git || true
+git clone https://github.com/tpope/vim-surround.git || true
 git clone https://github.com/ctrlpvim/ctrlp.vim.git || true
 git clone https://github.com/liuchengxu/vim-which-key.git || true
 git clone https://github.com/iberianpig/tig-explorer.vim.git || true
