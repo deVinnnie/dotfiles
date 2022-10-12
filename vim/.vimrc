@@ -87,6 +87,22 @@ let g:which_key_map.o = {
       \ 'q' : [ ':copen', 'open-quickfix' ],
       \ }
 
+let g:which_key_map.w = {
+      \ 'name': '+window',
+      \ 'w' : [ '<C-w>w<CR>', 'next' ],
+      \ 'j' : [ '<C-w>j<CR>', 'down' ],
+      \ 'J' : [ '<C-w>J<CR>', 'move down' ],
+      \ 'k' : [ '<C-w>k<CR>', 'up' ],
+      \ 'K' : [ '<C-w>K<CR>', 'move up' ],
+      \ 'h' : [ '<C-w>h<CR>', 'left' ],
+      \ 'H' : [ '<C-w>H<CR>', 'move left' ],
+      \ 'l' : [ '<C-w>l<CR>', 'right' ],
+      \ 'L' : [ '<C-w>L<CR>', 'move right' ],
+      \ 's' : [ '<C-w>s<CR>', 'vertical-split' ],
+      \ 'v' : [ '<C-w>v<CR>', 'horiztonal-split' ],
+      \ '=' : [ '<C-w>=<CR>', 'balance windows' ],
+      \ }
+
 call which_key#register('<Space>', "g:which_key_map")
 
 " Reselect visual selection after indentation
