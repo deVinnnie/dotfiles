@@ -16,7 +16,12 @@ function printDashboard
     JENKINS_DASHBOARD=$1
     COLUMN=$2
 
-    BUILD_MONITOR_VIEW=$(curl -s $JENKINS_DASHBOARD)
+    BUILD_MONITOR_VIEW=$(curl --fail --silent $JENKINS_DASHBOARD)
+    if [ $? -ne 0 ]; then
+        echo -e "$RED Error fetching dashboard"
+        exit
+    fi
+
     TITLE=$(echo $BUILD_MONITOR_VIEW \
         | jq-win64.exe --raw-output '.name')
 
