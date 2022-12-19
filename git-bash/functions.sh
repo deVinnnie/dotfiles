@@ -169,12 +169,6 @@ function java-8
     update-java-version-in-prompt
 }
 
-function java-7
-{
-    export JAVA_HOME=$JAVA_ROOT/sdk/1.7.0_40-x64/
-    update-java-version-in-prompt
-}
-
 java-11
 
 # Run `mvn clean` for each specified project.
