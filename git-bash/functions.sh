@@ -157,6 +157,13 @@ function update-java-version-in-prompt
     # JAVA_VERSION_DATE="2022-04-19
     export PROMPT_JAVA_VERSION=" "$(cat $JAVA_HOME/release | grep 'JAVA_VERSION=' | cut -d '=' -f2 | tr -d '"')""
 }
+
+function java-17
+{
+    export JAVA_HOME=$(xmllint.exe --xpath '//toolchains/toolchain[./provides/version=17]/configuration/jdkHome/text()' ~/.m2/toolchains.xml)
+    update-java-version-in-prompt
+}
+
 function java-11
 {
     export JAVA_HOME=$(xmllint.exe --xpath '//toolchains/toolchain[./provides/version=11]/configuration/jdkHome/text()' ~/.m2/toolchains.xml)
