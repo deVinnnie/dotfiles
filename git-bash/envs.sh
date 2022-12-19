@@ -1,3 +1,4 @@
+export EDITOR=vim
 export VIMINIT='let $MYVIMRC="$DOTFILES/../vim/.vimrc" | source $MYVIMRC'
 
 # Retain more history.
