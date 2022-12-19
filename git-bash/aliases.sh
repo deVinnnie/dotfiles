@@ -8,6 +8,7 @@ alias jenkins='$JAVA_HOME/jre/bin/java -jar /c/dev/common/jenkins-cli/jenkins-cl
 alias refresh='source ~/.bashrc'
 alias g='git $@'
 alias mvn='/c/dev/tools/apache-maven-3.8.5/bin/mvn.cmd $@'
+alias gh='git hist'
 alias jq='/c/dev/tools/jq-win64.exe -C $@'
 alias t='tig status'
 alias docker='winpty docker $@' # Fixes 'The handle is invalid.' when running docker with interactive flag.
