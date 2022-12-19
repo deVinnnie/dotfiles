@@ -1,5 +1,7 @@
 alias oc='oc.exe'
-alias ocl='oc.exe login -u '$OC_USERNAME' -p '$OC_PASSWORD
+function ocl() {
+    oc.exe login -u $OC_USERNAME -p $(/c/dev/tools/gopass/gopass show -o $OC_PASSWORD_SECRET_NAME)
+}
 alias ocd='oc.exe rollout latest $1'
 alias ij='/c/dev/tools/idea.cmd'
 alias jenkins='$JAVA_HOME/jre/bin/java -jar /c/dev/common/jenkins-cli/jenkins-cli.jar -s $JENKINS_URL $@'
