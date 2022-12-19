@@ -159,13 +159,13 @@ function update-java-version-in-prompt
 }
 function java-11
 {
-    export JAVA_HOME=$JAVA_ROOT/sdk/11.0.2-openjdk-x64/
+    export JAVA_HOME=$(xmllint.exe --xpath '//toolchains/toolchain[./provides/version=11]/configuration/jdkHome/text()' ~/.m2/toolchains.xml)
     update-java-version-in-prompt
 }
 
 function java-8
 {
-    export JAVA_HOME=$JAVA_ROOT/sdk/1.8.0_101-x64/
+    export JAVA_HOME=$(xmllint.exe --xpath '//toolchains/toolchain[./provides/version=1.8]/configuration/jdkHome/text()' ~/.m2/toolchains.xml)
     update-java-version-in-prompt
 }
 
