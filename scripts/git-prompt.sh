@@ -83,6 +83,10 @@ function __fastgit_ps1 () {
         read -r msgnum < "$gitdir/rebase-merge/msgnum"
         state="\001$COLOR_YELLOW_BOLD\002(REBASING $msgnum/$end)\001$COLOR_RESET\002 "
 
+    # Apply-Mailbox
+    elif [ -d "$gitdir/rebase-apply" ]; then
+        state="\001$COLOR_YELLOW_BOLD\002(APPLY-MAILBOX)\001$COLOR_RESET\002 "
+
     # Bisect
     elif [ -f "$gitdir/BISECT_START" ]; then
         state="\001$COLOR_YELLOW_BOLD\002(BISECTING)\001$COLOR_RESET\002 "
