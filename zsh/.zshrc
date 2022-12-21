@@ -155,7 +155,9 @@ export LESS_TERMCAP_ue="${reset_color}"
 # ----------------------------------------------------------------------
 setopt prompt_subst
 NEWLINE=$'\n'
-PROMPT='%F{cyan}%c%f'
+
+PROMPT=$'%{\e]0;%}${PWD##*/}%{\a%}' # Set title to current workdir, used by tmux
+PROMPT="$PROMPT"'%F{cyan}%c%f'
 PROMPT="$PROMPT"'`__fastgit_ps1`'
 PROMPT="$PROMPT${NEWLINE}"
 PROMPT="$PROMPT→ "
