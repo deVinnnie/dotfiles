@@ -48,6 +48,8 @@ set fillchars+=vert:\│
 " Map NerdTree to a dedicated shortcut
 map <C-n> :NERDTreeToggle<CR>
 
+let NERDTreeWinSize = 45
+
 " Toggle distraction free mode
 " Silent removes the ':Goyo' from the command buffer
 map <silent> <C-g> <Esc>:Goyo<CR>
