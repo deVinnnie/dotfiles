@@ -1,6 +1,6 @@
 # OpenShift
 OC_USERNAME=
-OC_PASSWORD=
+OC_PASSWORD_SECRET_NAME=
 
 declare -A OC_PROJECTS
 OC_PROJECTS["tennant-1"]="ravenclaw"
@@ -14,5 +14,4 @@ JENKINS_SUFFIX=
 JAVA_ROOT=
 
 # Other
-PROJECTS_DIR=
-JAVA_ROOT=
+export PROJECTS_DIR=
