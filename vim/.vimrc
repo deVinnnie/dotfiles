@@ -7,6 +7,12 @@ filetype off
 set omnifunc=syntaxcomplete#Complete
 set scrolloff=5
 
+" Disable default mapping for command history buffer
+" I keep accidently hitting this and it is annoying.
+nnoremap q: <NOP>
+nnoremap q? <NOP>
+nnoremap q/ <NOP>
+
 " Airline
 let g:airline_theme='deus'
 set ttimeoutlen=50
