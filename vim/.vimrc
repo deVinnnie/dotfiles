@@ -123,6 +123,12 @@ let g:which_key_map.w = {
       \ '=' : [ '<C-w>=<CR>', 'balance windows' ],
       \ }
 
+let g:which_key_map.t = {
+    \ 'name': '+toggles',
+    \ 'l' : [ ':set number!', 'show/hide line numbers' ],
+    \ 'c' : [ ':set list!', 'show/hide hidden characters' ],
+    \ }
+
 call which_key#register('<Space>', "g:which_key_map")
 
 " Reselect visual selection after indentation
