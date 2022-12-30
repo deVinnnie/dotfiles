@@ -47,6 +47,18 @@ colorscheme zenburn
 highlight Normal ctermbg=NONE
 highlight LineNr ctermbg=NONE
 
+" https://vimhelp.org/terminal.txt.html#terminal-size-color
+highlight Terminal ctermbg=NONE
+
+let g:airline_theme_patch_func = 'AirlineThemePatch'
+function! AirlineThemePatch(palette)
+    " Also make middle section of modeline transparent
+    "
+    " Default is set here:
+    " https://github.com/vim-airline/vim-airline/blob/5f5e00faad728f12f9ca9d9200208d8a39fd60f4/autoload/airline/themes.vim#L55
+    let a:palette.normal.airline_term = [ '#9cffd3', '#202020', 85, 'NONE']
+endfunction
+
 " Force continous line gutters between splits
 highlight VertSplit ctermbg=NONE ctermfg=8 cterm=NONE term=NONE gui=NONE guifg=NONE guibg=NONE
 set fillchars+=vert:\│
