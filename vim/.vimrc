@@ -6,6 +6,7 @@ filetype off
 
 set omnifunc=syntaxcomplete#Complete
 set scrolloff=5
+set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:$,precedes:«,extends:»
 
 " Disable default mapping for command history buffer
 " I keep accidently hitting this and it is annoying.
