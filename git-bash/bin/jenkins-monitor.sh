@@ -60,6 +60,23 @@ function printDashboard
     #| envsubst '$BLUE $BLUE_ANIME $RED $RED_ANIME $YELLOW $YELLOW_ANIME $RESET'`
 }
 
+function timeTillNextPoll
+{
+    currentDayOfWeek=$(date +%A | tr [:lower:] [:upper:])
+    currentHour=$(date +%H)
+
+    # Example: JENKINS_DASHBOARD_POLL_INTERVAL_MONDAY_06H
+    name="JENKINS_DASHBOARD_POLL_INTERVAL_${currentDayOfWeek}_${currentHour}H"
+
+    if [ -n "${!name}" ]; then
+        echo "${!name}"
+    elif [ -z "$JENKINS_DASHBOARD_POLL_INTERVAL" ]; then
+        echo 30
+    else
+        echo $JENKINS_DASHBOARD_POLL_INTERVAL
+    fi
+}
+
 dashboards=($(echo $JENKINS_DASHBOARD | tr ';' ' '))
 WIDTH=45
 
@@ -96,12 +113,15 @@ do
         fi
     done
 
+    BUFFER=$BUFFER$(tput cup $TOTAL_LINES 0)
+    BUFFER=$BUFFER$(date --iso-8601=minutes)
+
     tput clear
-    echo "$BUFFER"
+    echo -n "$BUFFER"
     if [ $line -gt $TOTAL_LINES ]; then
         echo -n "Too many lines"
     fi
 
-    sleep ${JENKINS_DASHBOARD_POLL_INTERVAL:-30}
+    sleep $(timeTillNextPoll)
 done
 
