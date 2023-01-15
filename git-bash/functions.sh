@@ -176,7 +176,7 @@ function java-8
     update-java-version-in-prompt
 }
 
-java-11
+java-17
 
 # Run `mvn clean` for each specified project.
 #
