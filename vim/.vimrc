@@ -33,6 +33,8 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\.so$\|\.dat$|\.DS_Store$'
   \ }
 
+let g:ctrlp_show_hidden = 1
+
 " Make the window higher
 let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:15'
 
