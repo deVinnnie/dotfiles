@@ -24,3 +24,5 @@ reload-threads 2
 
 confirm-mark-feed-read no
 prepopulate-query-feeds yes
+
+max-items 400
