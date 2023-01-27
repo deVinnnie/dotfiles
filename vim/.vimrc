@@ -129,6 +129,7 @@ let g:which_key_map.w = {
 let g:which_key_map.t = {
     \ 'name': '+toggles',
     \ 'l' : [ ':set number!', 'show/hide line numbers' ],
+    \ 'w' : [ ':set wrap!', 'wrap lines' ],
     \ 'c' : [ ':set list!', 'show/hide hidden characters' ],
     \ }
 
