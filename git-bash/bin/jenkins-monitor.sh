@@ -77,6 +77,11 @@ function timeTillNextPoll
     fi
 }
 
+# Print something while waiting for the first load
+tput clear
+tput cup $(tput lines) 0
+echo -e -n "$YELLOW_ANIME Loading Dashboards $RESET $(date --iso-8601=minutes)"
+
 dashboards=($(echo $JENKINS_DASHBOARD | tr ';' ' '))
 WIDTH=45
 
