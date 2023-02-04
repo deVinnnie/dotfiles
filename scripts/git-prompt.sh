@@ -79,8 +79,16 @@ function __fastgit_ps1 () {
 
     # Rebase / Merge / ...
     if [ -d "$gitdir/rebase-merge" ]; then
-        read -r end < "$gitdir/rebase-merge/end"
-        read -r msgnum < "$gitdir/rebase-merge/msgnum"
+
+        if [ -f "$gitdir/rebase-merge/end" ]; then
+            read -r end < "$gitdir/rebase-merge/end" 2> /dev/null
+            read -r msgnum < "$gitdir/rebase-merge/msgnum" 2> /dev/null
+        else
+            # When editing the todo file the end and msgnum are not yet available.
+            end='-'
+            msgnum='-'
+        fi
+
         state="\001$COLOR_YELLOW_BOLD\002(REBASING $msgnum/$end)\001$COLOR_RESET\002 "
 
     # Apply-Mailbox
