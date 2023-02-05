@@ -13,6 +13,8 @@ bind-key K prev-feed articlelist
 bind-key ^U pageup
 bind-key ^D pagedown
 
+unbind-key R
+
 text-width 60
 datetime-format "%Y-%m-%d"
 
