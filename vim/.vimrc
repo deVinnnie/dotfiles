@@ -139,6 +139,11 @@ call which_key#register('<Space>', "g:which_key_map")
 vnoremap < <gv
 vnoremap > >gv
 
+" Avoid 'old text in clipboard' when pasting multiple times in visual mode
+" https://vi.stackexchange.com/questions/25259/clipboard-is-reset-after-first-paste-in-visual-mode
+xnoremap <expr> p '"0p'
+xnoremap <expr> P '"0P'
+
 " Make gutter transparent
 highlight SignColumn ctermbg=NONE
 highlight GitGutterAdd    guifg=#009900 ctermfg=2 ctermbg=NONE
