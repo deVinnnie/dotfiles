@@ -23,6 +23,9 @@
 	defaultBranch = master
 
 [tig "bind"]
+    # unbind grep-view because I keep accidently hitting it
+    generic = g none
+
     # '>' == immediately reopen tig after command
     status = C >git commit
     status = A >git commit --amend
