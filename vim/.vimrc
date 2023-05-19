@@ -29,7 +29,7 @@ let g:limelight_conceal_ctermfg = 'DarkGrey'
 
 " CtrlP
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|node_modules\|log\|tmp$',
+  \ 'dir':  '\.git$\|node_modules$\|.angular$\|dist\|log\|tmp$\|.idea$',
   \ 'file': '\.so$\|\.dat$|\.DS_Store$'
   \ }
 
