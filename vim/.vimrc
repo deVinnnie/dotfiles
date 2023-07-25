@@ -23,6 +23,10 @@ if !exists('g:airline_symbols')
 endif
 
 let g:airline_symbols.maxlinenr=''
+" don't display current git branch, takes up too much space
+let g:airline_section_b=''
+" simplify position-section: only show current-line, column, and total lines
+let g:airline_section_z='%l:%v/%L% '
 
 " Limelight
 let g:limelight_conceal_ctermfg = 'DarkGrey'
