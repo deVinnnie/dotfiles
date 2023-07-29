@@ -2,6 +2,7 @@ syntax on
 set nocompatible
 set noshowmode
 set mouse=a
+set autoread
 filetype off
 
 set omnifunc=syntaxcomplete#Complete
