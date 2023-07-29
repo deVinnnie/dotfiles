@@ -37,7 +37,7 @@ wireless _first_ {
 }
 
 ethernet _first_ {
-        format_up = ""
+        format_up = "󰈀"
         format_down = ""
 
         color_degraded = "#FFFFFF"
@@ -81,7 +81,7 @@ cpu_temperature 0 {
 
 volume master {
         format_muted = "<span foreground='#afafaf'> %volume</span>"
-        format = "<span foreground='#ffffff'>蓼 %volume</span>"
+        format = "<span foreground='#ffffff'>󰕾 %volume</span>"
 
         device = "default"
         mixer = "Master"

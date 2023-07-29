@@ -71,8 +71,8 @@ function __fastgit_ps1 () {
         leftahead=${aheadAndBehind##*$'\t'}
 
         # Only show counters when there are commits to pushed/pulled
-        [ "$leftahead" != "0" ] && counter=$counter"${leftahead}"
-        [ "$rightahead" != "0" ] && counter=$counter"${rightahead}"
+        [ "$leftahead" != "0" ] && counter=$counter"󰁞${leftahead}"
+        [ "$rightahead" != "0" ] && counter=$counter"󰁆${rightahead}"
         # Only show brackets when there's something in between them.
         [ -n "$counter" ] && counter="\001$COLOR_RED_BOLD\002[$counter]\001$COLOR_RESET\002 "
     fi
