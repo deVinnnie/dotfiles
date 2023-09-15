@@ -1,4 +1,7 @@
 syntax on
+set noswapfile
+set nobackup
+set nowritebackup
 set nocompatible
 set noshowmode
 set mouse=a
