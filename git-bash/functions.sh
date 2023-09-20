@@ -155,7 +155,7 @@ function update-java-version-in-prompt
     # IMPLEMENTOR_VERSION="Temurin-17.0.3+7"
     # JAVA_VERSION="17.0.3"
     # JAVA_VERSION_DATE="2022-04-19
-    export PROMPT_JAVA_VERSION=" "$(cat $JAVA_HOME/release | grep 'JAVA_VERSION=' | cut -d '=' -f2 | tr -d '"')""
+    export PROMPT_JAVA_VERSION=" "$(grep 'JAVA_VERSION=' $JAVA_HOME/release | cut -d '=' -f2 | tr -d '"')""
 }
 
 function java-17
