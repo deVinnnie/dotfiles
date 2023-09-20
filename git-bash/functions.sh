@@ -155,7 +155,9 @@ function update-java-version-in-prompt
     # IMPLEMENTOR_VERSION="Temurin-17.0.3+7"
     # JAVA_VERSION="17.0.3"
     # JAVA_VERSION_DATE="2022-04-19
-    export PROMPT_JAVA_VERSION=" "$(grep 'JAVA_VERSION=' $JAVA_HOME/release | cut -d '=' -f2 | tr -d '"')""
+
+    # Use awk inst. of combination of grep/cut/tr because it only invokes a single process. (Windows is slow at starting new processes)
+    export PROMPT_JAVA_VERSION=" "$(awk --field-separator='=' '$1 == "JAVA_VERSION" { gsub(/"/, "", $2); print $2 }' $JAVA_HOME/release)""
 }
 
 function generate-jdks-locations-cache
