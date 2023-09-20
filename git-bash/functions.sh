@@ -158,21 +158,38 @@ function update-java-version-in-prompt
     export PROMPT_JAVA_VERSION=" "$(grep 'JAVA_VERSION=' $JAVA_HOME/release | cut -d '=' -f2 | tr -d '"')""
 }
 
+function generate-jdks-locations-cache
+{
+    JAVA_HOME_17=$(xmllint.exe --xpath '//toolchains/toolchain[./provides/version=17]/configuration/jdkHome/text()' ~/.m2/toolchains.xml)
+    JAVA_HOME_11=$(xmllint.exe --xpath '//toolchains/toolchain[./provides/version=11]/configuration/jdkHome/text()' ~/.m2/toolchains.xml)
+    JAVA_HOME_8=$(xmllint.exe --xpath '//toolchains/toolchain[./provides/version=1.8]/configuration/jdkHome/text()' ~/.m2/toolchains.xml)
+
+    echo "JAVA_HOME_17='$JAVA_HOME_17'" > ~/.cache/jdks
+    echo "JAVA_HOME_11='$JAVA_HOME_11'" >> ~/.cache/jdks
+    echo "JAVA_HOME_8='$JAVA_HOME_8'" >> ~/.cache/jdks
+
+    echo "Output stored in ~/.cache/jdks"
+}
+
+# Shave some miliseconds off shell startup by avoiding a call to xmllint
+test -f ~/.cache/jdks || generate-jdks-locations-cache > /dev/null
+source ~/.cache/jdks
+
 function java-17
 {
-    export JAVA_HOME=$(xmllint.exe --xpath '//toolchains/toolchain[./provides/version=17]/configuration/jdkHome/text()' ~/.m2/toolchains.xml)
+    export JAVA_HOME=$JAVA_HOME_17
     update-java-version-in-prompt
 }
 
 function java-11
 {
-    export JAVA_HOME=$(xmllint.exe --xpath '//toolchains/toolchain[./provides/version=11]/configuration/jdkHome/text()' ~/.m2/toolchains.xml)
+    export JAVA_HOME=$JAVA_HOME_11
     update-java-version-in-prompt
 }
 
 function java-8
 {
-    export JAVA_HOME=$(xmllint.exe --xpath '//toolchains/toolchain[./provides/version=1.8]/configuration/jdkHome/text()' ~/.m2/toolchains.xml)
+    export JAVA_HOME=$JAVA_HOME_8
     update-java-version-in-prompt
 }
 
