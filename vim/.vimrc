@@ -43,6 +43,10 @@ let g:ctrlp_show_hidden = 1
 " Make the window higher
 let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:15'
 
+" Autocompletion in command mode
+set wildmenu
+set wildmode=longest:full,full
+
 filetype plugin indent on
 
 set colorcolumn=80
