@@ -82,7 +82,8 @@ tput clear
 tput cup $(tput lines) 0
 echo -e -n "$YELLOW_ANIME Loading Dashboards $RESET $(date --iso-8601=minutes)"
 
-dashboards=($(echo $JENKINS_DASHBOARD | tr ';' ' '))
+basedir=$(dirname "$0")
+dashboards=($(awk '{ print $1 }' $basedir/jenkins-dashboards.txt | tr '\n' ' '))
 WIDTH=45
 
 while :
