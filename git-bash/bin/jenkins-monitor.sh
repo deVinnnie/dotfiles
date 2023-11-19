@@ -15,7 +15,7 @@ export BOLD='\e[97m'
 function printDashboard
 {
     JENKINS_DASHBOARD=$1
-    COLUMN=$2
+    MODE=$2
 
     BUILD_MONITOR_VIEW=$(curl --fail --silent $JENKINS_DASHBOARD)
     if [ $? -ne 0 ]; then
@@ -26,11 +26,19 @@ function printDashboard
     TITLE=$(echo $BUILD_MONITOR_VIEW \
         | jq-win64.exe --raw-output '.name')
 
+    if [ "$MODE" == 'summary' ]; then
+        TITLE=$TITLE" (summary)"
+    fi
+
     LENGTH=$(echo $BUILD_MONITOR_VIEW \
         | jq-win64.exe --raw-output '.jobs | length')
 
     EXCLUDE='nothing'
     if [ $LENGTH -gt 20 ]; then
+        EXCLUDE='$BLUE '
+    fi
+
+    if [ "$MODE" == 'summary' ]; then
         EXCLUDE='$BLUE '
     fi
 
@@ -53,7 +61,9 @@ function printDashboard
     echo -e "$JOBS"
 
     if [ $LENGTH -gt 20 ]; then
-        echo "   ..."
+        if [ "$MODE" != 'summary' ]; then
+            echo "   ..."
+        fi
     fi
     echo -e "\n\n"
     # envsubst scrambles special characters...
@@ -84,6 +94,7 @@ echo -e -n "$YELLOW_ANIME Loading Dashboards $RESET $(date --iso-8601=minutes)"
 
 basedir=$(dirname "$0")
 dashboards=($(awk '{ print $1 }' $basedir/jenkins-dashboards.txt | tr '\n' ' '))
+modes=($(awk '{ print ($2==""?"all":$2) }' $basedir/jenkins-dashboards.txt | tr '\n' ' '))
 WIDTH=45
 
 while :
@@ -102,7 +113,8 @@ do
 
     for index in ${!dashboards[@]}; do
         dashboard=${dashboards[$index]}
-        out=$(printDashboard $dashboard)
+        mode=${modes[$index]}
+        out=$(printDashboard $dashboard $mode)
 
         BUFFER=$BUFFER$(tput cup $line $col)
         # https://unix.stackexchange.com/questions/405244/is-multi-line-alignment-possible-with-tput
