@@ -37,6 +37,7 @@ function printDashboard
     JOBS=$(echo $BUILD_MONITOR_VIEW \
         | jq-win64.exe --raw-output '.jobs[] | "$" + (.color | ascii_upcase) + "" + .name + "$RESET"' \
         | grep -v $EXCLUDE \
+        | grep -v NOTBUILT \
         | sed "s/\$RESET/\\$RESET/g" \
         | sed "s/\$BLUE_ANIME/\\$BLUE_ANIME/g" \
         | sed "s/\$BLUE/\\$BLUE/g" \
@@ -44,7 +45,6 @@ function printDashboard
         | sed "s/\$RED/\\$RED/g" \
         | sed "s/\$YELLOW_ANIME/\\$YELLOW_ANIME/g" \
         | sed "s/\$YELLOW/\\$YELLOW/g" \
-        | sed "s/\$NOTBUILT/\\$ABORTED/g" \
         | sed "s/\$ABORTED_ANIME/\\$ABORTED_ANIME/g" \
         | sed "s/\$ABORTED/\\$ABORTED/g" \
         | sed "s/\$DISABLED/\\$DISABLED/g"
