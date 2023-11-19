@@ -162,11 +162,13 @@ function update-java-version-in-prompt
 
 function generate-jdks-locations-cache
 {
+    JAVA_HOME_21=$(xmllint.exe --xpath '//toolchains/toolchain[./provides/version=21]/configuration/jdkHome/text()' ~/.m2/toolchains.xml)
     JAVA_HOME_17=$(xmllint.exe --xpath '//toolchains/toolchain[./provides/version=17]/configuration/jdkHome/text()' ~/.m2/toolchains.xml)
     JAVA_HOME_11=$(xmllint.exe --xpath '//toolchains/toolchain[./provides/version=11]/configuration/jdkHome/text()' ~/.m2/toolchains.xml)
     JAVA_HOME_8=$(xmllint.exe --xpath '//toolchains/toolchain[./provides/version=1.8]/configuration/jdkHome/text()' ~/.m2/toolchains.xml)
 
-    echo "JAVA_HOME_17='$JAVA_HOME_17'" > ~/.cache/jdks
+    echo "JAVA_HOME_21='$JAVA_HOME_21'" > ~/.cache/jdks
+    echo "JAVA_HOME_17='$JAVA_HOME_17'" >> ~/.cache/jdks
     echo "JAVA_HOME_11='$JAVA_HOME_11'" >> ~/.cache/jdks
     echo "JAVA_HOME_8='$JAVA_HOME_8'" >> ~/.cache/jdks
 
@@ -176,6 +178,12 @@ function generate-jdks-locations-cache
 # Shave some miliseconds off shell startup by avoiding a call to xmllint
 test -f ~/.cache/jdks || generate-jdks-locations-cache > /dev/null
 source ~/.cache/jdks
+
+function java-21
+{
+    export JAVA_HOME=$JAVA_HOME_21
+    update-java-version-in-prompt
+}
 
 function java-17
 {
@@ -195,7 +203,7 @@ function java-8
     update-java-version-in-prompt
 }
 
-java-17
+java-21
 
 # Run `mvn clean` for each specified project.
 #
