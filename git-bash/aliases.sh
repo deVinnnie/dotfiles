@@ -1,6 +1,7 @@
 alias oc='oc.exe'
 function ocl() {
-    oc.exe login -u $OC_USERNAME -p $(/c/dev/tools/gopass/gopass show -o $OC_PASSWORD_SECRET_NAME)
+    server=$(cat ~/.kube/config | awk --field-separator=' ' '$1 == "server:" { print $2 }' | fzf)
+    /c/dev/tools/oc.exe login --server=$server -u $OC_USERNAME -p $(/c/dev/tools/gopass/gopass show -o $OC_PASSWORD_SECRET_NAME)
 }
 alias ocd='oc.exe rollout latest $1'
 alias ij='/c/dev/tools/idea.cmd'
