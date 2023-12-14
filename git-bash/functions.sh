@@ -254,3 +254,6 @@ function dc_trace_cmd() {
     dc_trace_cmd $parent $level
   fi
 }
+
+# https://github.com/junegunn/fzf/issues/2798#issuecomment-1229376159
+fzf() { "$DOTFILES/bin/fzf-winpty" "$@" ; }
