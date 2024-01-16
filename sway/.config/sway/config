@@ -197,7 +197,7 @@ mode "$mode_shutdown" {
     # move focus to the parent container
     bindsym $mod+a focus parent
 
-    bindsym $mod+y fullscreen disable; floating enable; resize set 640 480; sticky disable; move window to position 1270 590
+    bindsym $mod+y fullscreen disable; floating enable; resize set 640 480; sticky enable; move window to position 1270 590
 #
 # Scratchpad:
 #
