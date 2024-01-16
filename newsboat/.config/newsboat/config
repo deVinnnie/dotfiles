@@ -28,3 +28,5 @@ confirm-mark-feed-read no
 prepopulate-query-feeds yes
 
 max-items 400
+
+macro v set browser "swaymsg exec mpv '%u'"; open-in-browser; set browser "firefox --new-tab %u"
