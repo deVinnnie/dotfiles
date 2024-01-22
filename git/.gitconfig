@@ -7,6 +7,9 @@
 [diff]
 	tool = meld
 
+[pull]
+    rebase = true
+
 [alias]
 	hist = log --oneline --decorate --graph
 	h = log --oneline --decorate --graph
