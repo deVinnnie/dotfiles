@@ -29,6 +29,7 @@
     # '>' == immediately reopen tig after command
     status = C >git commit
     status = A >git commit --amend
+    status = F >git fixup
     # 'preview' an image
     status = <Ctrl-p> >feh %(file)
 

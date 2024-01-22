@@ -1,0 +1,5 @@
+#!/bin/sh
+git log --oneline --max-count=40 \
+    | fzf-winpty \
+    | cut --field 1 --delimiter=' ' \
+    | xargs -I {} git commit --fixup {}
