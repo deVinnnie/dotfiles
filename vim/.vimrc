@@ -6,6 +6,8 @@ set nocompatible
 set noshowmode
 set mouse=a
 set autoread
+" enable case insensitive search
+set ignorecase
 filetype off
 
 set omnifunc=syntaxcomplete#Complete
