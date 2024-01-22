@@ -39,3 +39,7 @@
     # 'preview' an image
     status = <Ctrl-p> >feh %(file)
 
+    # Show history of selected file
+    diff = H >sh -c "tig \"$(git rev-parse --show-toplevel)/%(file)\""
+    status = H >sh -c "tig \"$(git rev-parse --show-toplevel)/%(file)\""
+    tree = H >sh -c "tig \"$(git rev-parse --show-toplevel)/%(file)\""
