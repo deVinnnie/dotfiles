@@ -139,6 +139,8 @@ let g:which_key_map.w = {
       \ 's' : [ '<C-w>s<CR>', 'vertical-split' ],
       \ 'v' : [ '<C-w>v<CR>', 'horiztonal-split' ],
       \ '=' : [ '<C-w>=<CR>', 'balance windows' ],
+      \ '|' : [ '<C-w>|<CR>', 'maximize horizontally' ],
+      \ '_' : [ '<C-w>_<CR>', 'maximize vertically' ],
       \ }
 
 let g:which_key_map.t = {
