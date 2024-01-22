@@ -10,6 +10,9 @@
 [pull]
     rebase = true
 
+[rebase]
+    autoStash = true
+
 [alias]
 	hist = log --oneline --decorate --graph
 	h = log --oneline --decorate --graph
