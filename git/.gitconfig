@@ -28,6 +28,9 @@
 [init]
 	defaultBranch = master
 
+[tig]
+    mouse = true
+
 [tig "bind"]
     # unbind grep-view because I keep accidently hitting it
     generic = g none
