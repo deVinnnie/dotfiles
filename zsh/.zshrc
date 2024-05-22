@@ -110,6 +110,7 @@ alias newsboat="LANG=en LC_ALL=en_US.UTF-8 newsboat --quiet $@" # Make newsboat 
 alias nw=newsboat
 export PYGMENTIZE_STYLE='zenburn' # Used as color theme to preview text-files in ranger.
 alias r='ranger'
+alias diff='diff --color --side-by-side'
 
 # Do file operations with 'interactive' mode,
 # to avoid accidental mayhem.
