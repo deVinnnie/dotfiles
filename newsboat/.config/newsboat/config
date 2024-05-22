@@ -12,6 +12,8 @@ bind-key J next-feed articlelist
 bind-key K prev-feed articlelist
 bind-key ^U pageup
 bind-key ^D pagedown
+bind-key m mark-feed-read articlelist
+bind-key h quit
 
 unbind-key R
 
