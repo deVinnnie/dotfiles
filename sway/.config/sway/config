@@ -42,6 +42,8 @@ bindsym $mod+Alt+Shift+ccedilla output HDMI-A-1 pos 0 0 res 2048x1080
 bindsym $mod+agrave output LVDS-1 enable
 bindsym $mod+Shift+agrave output LVDS-1 disable
 
+bindsym $mod+parenright exec wl-present mirror
+
 ### Idle configuration
 #
 # Example configuration:
