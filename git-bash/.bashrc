@@ -9,3 +9,7 @@ source $DOTFILES/functions.sh
 source $DOTFILES/../scripts/git-prompt.sh
 source $DOTFILES/prompt.sh
 source $DOTFILES/autocomplete.sh
+
+if [ -z "$TMUX" ]; then
+    cd && tmux
+fi
