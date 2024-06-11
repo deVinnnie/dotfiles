@@ -11,7 +11,7 @@ ln -sfv $DOTFILES_DIR/.tmux.conf ~/.tmux.conf
 ln -sfv $DOTFILES_DIR/.editorconfig ~/.editorconfig
 ln -sfv $DOTFILES_DIR/feh/themes ~/.config/feh/themes
 ln -sfv $DOTFILES_DIR/feh/keys ~/.config/feh/keys
-stow alacritty zathura newsboat
+stow alacritty zathura newsboat gopass
 
 ln -sfv $DOTFILES_DIR/bin/markdown-all.sh ~/bin/markdown-all.sh
 

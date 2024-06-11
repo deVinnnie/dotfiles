@@ -1,0 +1,13 @@
+[core]
+	autosync = false
+	noreminder = true
+[age]
+	usekeychain = false
+[mounts]
+	path = ~/.local/share/gopass/stores/root
+[show]
+	safecontent = false
+[generate]
+	autoclip = false
+[updater]
+	check = false
