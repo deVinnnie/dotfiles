@@ -23,6 +23,9 @@ nnoremap q: <NOP>
 nnoremap q? <NOP>
 nnoremap q/ <NOP>
 
+" https://vi.stackexchange.com/questions/2983/how-can-i-delete-a-function-call-leaving-its-inner-content-intact
+nmap <silent> dsf ds)db
+
 " Airline
 let g:airline_theme='deus'
 set ttimeoutlen=50
