@@ -103,6 +103,23 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 autocmd FileType python setlocal completeopt-=preview
 
+" Switch html/ts
+" https://vi.stackexchange.com/questions/6490/switching-c-h-buffers
+function! AlternateBetweenHtmlAndTs()
+    let l:parts = split(expand("%:p"), "[.]")
+    let l:root = join(parts[0:-2], ".")
+    let l:extension = parts[-1]
+
+    if extension == "html"
+      let l:extension = "ts"
+    elseif extension == "ts"
+      let l:extension = "html"
+    endif
+
+    let l:target = root . "." . extension
+    execute "edit " . target
+endfunction
+
 " Space menu with which-key
 " - https://github.com/liuchengxu/vim-which-key#installation
 " - https://jay-baker.com/posts/vim-1-which-key/
@@ -115,6 +132,7 @@ let g:which_key_map['g'] = [ ':Goyo', 'goyo' ]
 let g:which_key_map['n'] = [ ':NERDTreeToggle', 'nerdtree' ]
 let g:which_key_map['b'] = [ ':CtrlPBuffer', 'buffers' ]
 let g:which_key_map[' '] = [ ':CtrlP', 'fuzzy find' ]
+let g:which_key_map['a'] = [ ':call AlternateBetweenHtmlAndTs()<CR>', 'alternate between html/ts']
 
 let g:which_key_map.f = {
       \ 'name': '+files',
