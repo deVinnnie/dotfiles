@@ -15,7 +15,7 @@ COLOR_RESET='\033[0m'
 #
 # `time __fastgit_ps1`
 # Linux: ~5ms
-# Windows: ~90ms
+# Windows: ~200-300ms
 #
 # Regarding '\[   \]' and '\001 \002':
 # https://superuser.com/questions/301353/escape-non-printing-characters-in-a-function-for-a-bash-prompt/301355#301355
