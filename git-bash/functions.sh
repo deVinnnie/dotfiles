@@ -150,14 +150,7 @@ function docker-cleanup
 
 function update-java-version-in-prompt
 {
-    # $ cat $JAVA_HOME/release
-    # IMPLEMENTOR="Eclipse Adoptium"
-    # IMPLEMENTOR_VERSION="Temurin-17.0.3+7"
-    # JAVA_VERSION="17.0.3"
-    # JAVA_VERSION_DATE="2022-04-19
-
-    # Use awk inst. of combination of grep/cut/tr because it only invokes a single process. (Windows is slow at starting new processes)
-    export PROMPT_JAVA_VERSION=" "$(awk --field-separator='=' '$1 == "JAVA_VERSION" { gsub(/"/, "", $2); print $2 }' $JAVA_HOME/release)""
+    export PROMPT_JAVA_VERSION=" "$1""
 }
 
 function generate-jdks-locations-cache
@@ -175,32 +168,58 @@ function generate-jdks-locations-cache
     echo "Output stored in ~/.cache/jdks"
 }
 
+function generate-jdks-version-cache
+{
+    # $ cat $JAVA_HOME/release
+    # IMPLEMENTOR="Eclipse Adoptium"
+    # IMPLEMENTOR_VERSION="Temurin-17.0.3+7"
+    # JAVA_VERSION="17.0.3"
+    # JAVA_VERSION_DATE="2022-04-19
+
+    # Use awk inst. of combination of grep/cut/tr because it only invokes a single process. (Windows is slow at starting new processes)
+    JAVA_VERSION_21=$(awk --field-separator='=' '$1 == "JAVA_VERSION" { gsub(/"/, "", $2); print $2 }' $JAVA_HOME_21/release)
+    JAVA_VERSION_17=$(awk --field-separator='=' '$1 == "JAVA_VERSION" { gsub(/"/, "", $2); print $2 }' $JAVA_HOME_17/release)
+    JAVA_VERSION_11=$(awk --field-separator='=' '$1 == "JAVA_VERSION" { gsub(/"/, "", $2); print $2 }' $JAVA_HOME_11/release)
+    JAVA_VERSION_8=$(awk --field-separator='=' '$1 == "JAVA_VERSION" { gsub(/"/, "", $2); print $2 }' $JAVA_HOME_8/release)
+
+    echo "JAVA_VERSION_21='$JAVA_VERSION_21'" > ~/.cache/jdk-versions
+    echo "JAVA_VERSION_17='$JAVA_VERSION_17'" >> ~/.cache/jdk-versions
+    echo "JAVA_VERSION_11='$JAVA_VERSION_11'" >> ~/.cache/jdk-versions
+    echo "JAVA_VERSION_8='$JAVA_VERSION_8'" >> ~/.cache/jdk-versions
+
+    echo "Output stored in ~/.cache/jdk-versions"
+}
+
 # Shave some miliseconds off shell startup by avoiding a call to xmllint
 test -f ~/.cache/jdks || generate-jdks-locations-cache > /dev/null
 source ~/.cache/jdks
 
+# Shave some miliseconds off shell startup by avoiding a call to awk
+# The awk thing was already an improvement over the grep/cut/tr pipe, but still too slow.
+test -f ~/.cache/jdk-versions || generate-jdks-version-cache > /dev/null
+source ~/.cache/jdk-versions
 function java-21
 {
     export JAVA_HOME=$JAVA_HOME_21
-    update-java-version-in-prompt
+    update-java-version-in-prompt $JAVA_VERSION_21
 }
 
 function java-17
 {
     export JAVA_HOME=$JAVA_HOME_17
-    update-java-version-in-prompt
+    update-java-version-in-prompt $JAVA_VERSION_17
 }
 
 function java-11
 {
     export JAVA_HOME=$JAVA_HOME_11
-    update-java-version-in-prompt
+    update-java-version-in-prompt $JAVA_VERSION_11
 }
 
 function java-8
 {
     export JAVA_HOME=$JAVA_HOME_8
-    update-java-version-in-prompt
+    update-java-version-in-prompt $JAVA_VERSION_8
 }
 
 java-21
