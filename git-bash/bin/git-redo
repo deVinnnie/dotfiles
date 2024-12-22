@@ -1,0 +1,7 @@
+#!/bin/sh
+revision=$(git rev-parse HEAD)
+echo $revision
+git reset --soft HEAD~1
+tig status
+read -p 'Waiting to continue' any
+git commit --reedit-message=$revision
