@@ -155,12 +155,14 @@ function update-java-version-in-prompt
 
 function generate-jdks-locations-cache
 {
+    JAVA_HOME_23=$(xmllint.exe --xpath '//toolchains/toolchain[./provides/version=23]/configuration/jdkHome/text()' ~/.m2/toolchains.xml)
     JAVA_HOME_21=$(xmllint.exe --xpath '//toolchains/toolchain[./provides/version=21]/configuration/jdkHome/text()' ~/.m2/toolchains.xml)
     JAVA_HOME_17=$(xmllint.exe --xpath '//toolchains/toolchain[./provides/version=17]/configuration/jdkHome/text()' ~/.m2/toolchains.xml)
     JAVA_HOME_11=$(xmllint.exe --xpath '//toolchains/toolchain[./provides/version=11]/configuration/jdkHome/text()' ~/.m2/toolchains.xml)
     JAVA_HOME_8=$(xmllint.exe --xpath '//toolchains/toolchain[./provides/version=1.8]/configuration/jdkHome/text()' ~/.m2/toolchains.xml)
 
-    echo "JAVA_HOME_21='$JAVA_HOME_21'" > ~/.cache/jdks
+    echo "JAVA_HOME_23='$JAVA_HOME_23'" > ~/.cache/jdks
+    echo "JAVA_HOME_21='$JAVA_HOME_21'" >> ~/.cache/jdks
     echo "JAVA_HOME_17='$JAVA_HOME_17'" >> ~/.cache/jdks
     echo "JAVA_HOME_11='$JAVA_HOME_11'" >> ~/.cache/jdks
     echo "JAVA_HOME_8='$JAVA_HOME_8'" >> ~/.cache/jdks
@@ -177,12 +179,14 @@ function generate-jdks-version-cache
     # JAVA_VERSION_DATE="2022-04-19
 
     # Use awk inst. of combination of grep/cut/tr because it only invokes a single process. (Windows is slow at starting new processes)
+    JAVA_VERSION_23=$(awk --field-separator='=' '$1 == "JAVA_VERSION" { gsub(/"/, "", $2); print $2 }' $JAVA_HOME_23/release)
     JAVA_VERSION_21=$(awk --field-separator='=' '$1 == "JAVA_VERSION" { gsub(/"/, "", $2); print $2 }' $JAVA_HOME_21/release)
     JAVA_VERSION_17=$(awk --field-separator='=' '$1 == "JAVA_VERSION" { gsub(/"/, "", $2); print $2 }' $JAVA_HOME_17/release)
     JAVA_VERSION_11=$(awk --field-separator='=' '$1 == "JAVA_VERSION" { gsub(/"/, "", $2); print $2 }' $JAVA_HOME_11/release)
     JAVA_VERSION_8=$(awk --field-separator='=' '$1 == "JAVA_VERSION" { gsub(/"/, "", $2); print $2 }' $JAVA_HOME_8/release)
 
-    echo "JAVA_VERSION_21='$JAVA_VERSION_21'" > ~/.cache/jdk-versions
+    echo "JAVA_VERSION_23='$JAVA_VERSION_23'" > ~/.cache/jdk-versions
+    echo "JAVA_VERSION_21='$JAVA_VERSION_21'" >> ~/.cache/jdk-versions
     echo "JAVA_VERSION_17='$JAVA_VERSION_17'" >> ~/.cache/jdk-versions
     echo "JAVA_VERSION_11='$JAVA_VERSION_11'" >> ~/.cache/jdk-versions
     echo "JAVA_VERSION_8='$JAVA_VERSION_8'" >> ~/.cache/jdk-versions
@@ -198,6 +202,13 @@ source ~/.cache/jdks
 # The awk thing was already an improvement over the grep/cut/tr pipe, but still too slow.
 test -f ~/.cache/jdk-versions || generate-jdks-version-cache > /dev/null
 source ~/.cache/jdk-versions
+
+function java-23
+{
+    export JAVA_HOME=$JAVA_HOME_23
+    update-java-version-in-prompt $JAVA_VERSION_23
+}
+
 function java-21
 {
     export JAVA_HOME=$JAVA_HOME_21
@@ -222,7 +233,7 @@ function java-8
     update-java-version-in-prompt $JAVA_VERSION_8
 }
 
-java-21
+java-23
 
 # Run `mvn clean` for each specified project.
 #
