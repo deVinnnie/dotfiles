@@ -12,6 +12,7 @@
 
 [rebase]
     autoStash = true
+    autosquash = true
 
 [alias]
 	hist = log --oneline --decorate --graph
