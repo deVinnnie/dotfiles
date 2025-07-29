@@ -61,14 +61,14 @@ set wildmode=longest:full,full
 filetype plugin indent on
 
 set colorcolumn=80
-highlight ColorColumn ctermbg=5
+highlight ColorColumn ctermbg=5 "guibg=5
 set tabstop=4
 
 
 let g:zenburn_transparent = 1
 colorscheme zenburn
-highlight Normal ctermbg=NONE
-highlight LineNr ctermbg=NONE
+highlight Normal ctermbg=NONE guibg=NONE
+highlight LineNr ctermbg=NONE guibg=NONE
 
 " https://vimhelp.org/terminal.txt.html#terminal-size-color
 highlight Terminal ctermbg=NONE
@@ -79,7 +79,8 @@ function! AirlineThemePatch(palette)
     "
     " Default is set here:
     " https://github.com/vim-airline/vim-airline/blob/5f5e00faad728f12f9ca9d9200208d8a39fd60f4/autoload/airline/themes.vim#L55
-    let a:palette.normal.airline_term = [ '#9cffd3', '#202020', 85, 'NONE']
+    " let a:palette.normal.airline_term = [ '#9cffd3', '#202020', 85, 'NONE']
+    let a:palette.normal.airline_term = [ 'NONE', 'NONE', 'NONE', 'NONE']
 endfunction
 
 " Force continous line gutters between splits
@@ -192,3 +193,6 @@ highlight GitGutterDelete guifg=#ff2222 ctermfg=1 ctermbg=NONE
 
 autocmd BufNewFile,BufRead Jenkinsfile* setfiletype groovy
 
+set clipboard+=unnamedplus
+
+highlight Visual  ctermfg=0 ctermbg=235 guifg=LightGrey guibg=#4f4f4f

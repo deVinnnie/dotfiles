@@ -110,6 +110,7 @@ alias nw=newsboat
 export PYGMENTIZE_STYLE='zenburn' # Used as color theme to preview text-files in ranger.
 alias r='ranger'
 alias diff='diff --color --side-by-side'
+alias vim='nvim'
 
 # Do file operations with 'interactive' mode,
 # to avoid accidental mayhem.
@@ -123,7 +124,7 @@ function cd {
 
 # Environment variables
 # ----------------------------------------------------------------------
-export EDITOR=/usr/bin/vim
+export EDITOR=/usr/bin/nvim
 export PROJECTS_DIR=~/Development/Repos
 
 # Disable less search history
